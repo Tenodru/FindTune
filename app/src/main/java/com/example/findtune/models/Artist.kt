@@ -3,13 +3,23 @@ package com.example.findtune.models;
 import androidx.annotation.DrawableRes
 
 /**
+ * A data class to represent genre information.
+ */
+data class Genre(
+    @DrawableRes val imageResourceId: Int,
+    val name: String,
+    val topArtists: List<Artist>,
+    val newArtists: List<Artist>
+)
+
+/**
  * A data class to represent the information presented in artist cards.
  */
 data class Artist(
     @DrawableRes val imageResourceId: Int,
     val name: String,
-    val topAlbum: String,
-    val recentAlbum: String
+    val topAlbum: Album,
+    val recentAlbum: Album
 )
 
 /**
