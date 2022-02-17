@@ -3,6 +3,8 @@ package com.example.findtune
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.recyclerview.widget.RecyclerView
+import com.example.findtune.GenreCardAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +26,9 @@ class MainActivity : AppCompatActivity() {
      */
     private fun enterGenreScreen() {
         setContentView(R.layout.activity_genres_screen)
+        val recyclerView = findViewById<RecyclerView>(R.id.grid_recycler_view)
+        recyclerView.adapter = GenreCardAdapter(this)
+        recyclerView.setHasFixedSize(true)
     }
 
     // Test
