@@ -26,5 +26,21 @@ object Artists {
         )
     )
 
-    // Genre2
+    // Hip-Hop
+    val hiphopArtistsTop: List<Artist> = listOf (
+        Artist(
+            R.drawable.artist_placeholder,
+            "Artist Name",
+            Albums.album_artist1,
+            Albums.album2_artist1
+        )
+    )
+    val hiphopArtistsNew: List<Artist> = listOf (
+        Artist(
+            R.drawable.artist_placeholder,
+            "Artist Name",
+            Albums.album_artist1,
+            Albums.album2_artist1
+        )
+    )
 }

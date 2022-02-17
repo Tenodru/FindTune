@@ -14,6 +14,12 @@ object Genres {
             "Pop",
             Artists.popArtistsTop,
             Artists.popArtistsNew
+                ),
+        Genre (
+            R.drawable.hiphop,
+            "Hip-Hop",
+            Artists.hiphopArtistsTop,
+            Artists.hiphopArtistsNew
                 )
     )
 
