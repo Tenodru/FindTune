@@ -3,8 +3,6 @@ package com.example.findtune
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,7 +23,7 @@ class MainActivity : AppCompatActivity() {
      * App moves to genre display screen.
      */
     private fun enterGenreScreen() {
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_genres_screen)
     }
 
     // Test
