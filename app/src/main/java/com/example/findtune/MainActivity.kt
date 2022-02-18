@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            
+
             return true
         }
         return super.onOptionsItemSelected(item)
@@ -46,6 +46,9 @@ class MainActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
     }
 
+    /**
+     * App moves to artist display screen.
+     */
     fun enterArtistScreen(genre: Genre) {
         //Toast.makeText(this, genre.topArtists[0].name, Toast.LENGTH_SHORT).show()
         setContentView(R.layout.activity_artists_screen)
@@ -54,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         val recyclerView2 = findViewById<RecyclerView>(R.id.new_releases_view)
         recyclerView2.adapter = NewReleasesCardAdapter(this, genre) { songItem -> goToSongLink(songItem)}
     }
+
 
     fun goToSongLink(song: Song) {
         TODO("Open up song link in browser.")
