@@ -1,7 +1,9 @@
 package com.example.findtune
 
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -17,9 +19,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.welcome_screen)
 
+        val actionBar: ActionBar? = supportActionBar
+        actionBar?.setHomeAsUpIndicator(R.drawable.backbutton)
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
         // Welcome message stuff. When enter button is clicked, go to genre display screen.
         val enterButton: Button = findViewById(R.id.enterButton)
         enterButton.setOnClickListener { enterGenreScreen() }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     /**
