@@ -68,4 +68,64 @@ object Artists {
             )
         )
     )
+
+    // R&B
+    val rnbArtists: List<Artist> = listOf (
+        Artist(
+            "Artist Name",
+            Song (
+                R.drawable.album_placeholder,
+                "Recent Song Name",
+                link = "Song Link"
+            ),
+            Song (
+                R.drawable.album_placeholder,
+                "Top Song Name",
+                link = "Song Link"
+            )
+        ),
+        Artist(
+            "Artist Name",
+            Song (
+                R.drawable.album_placeholder,
+                "Recent Song Name",
+                link = "Song Link"
+            ),
+            Song (
+                R.drawable.album_placeholder,
+                "Top Song Name",
+                link = "Song Link"
+            )
+        )
+    )
+
+    // Latin
+    val latinArtists: List<Artist> = listOf (
+        Artist(
+            "Artist Name",
+            Song (
+                R.drawable.album_placeholder,
+                "Recent Song Name",
+                link = "Song Link"
+            ),
+            Song (
+                R.drawable.album_placeholder,
+                "Top Song Name",
+                link = "Song Link"
+            )
+        ),
+        Artist(
+            "Artist Name",
+            Song (
+                R.drawable.album_placeholder,
+                "Recent Song Name",
+                link = "Song Link"
+            ),
+            Song (
+                R.drawable.album_placeholder,
+                "Top Song Name",
+                link = "Song Link"
+            )
+        )
+    )
 }
