@@ -4,79 +4,37 @@ import com.example.findtune.R
 import com.example.findtune.models.Song
 
 /**
- * An object to generate static lists of song lists and albums.
+ * An object to generate static lists of songs.
  */
 object Songs {
-
-    // Top song and new song for top artists.
-
-    // Pop
-    val pop_artist1_songList: List<Song> = listOf(
-        Song(
-            "Top Song Name",
-            link = "Song Link"
-                ),
-        Song (
-            "New Song Name",
-            link = "Song Link"
-                )
-    )
-    val pop_artist2_songList: List<Song> = listOf(
-        Song(
-            "Top Song Name",
-            link = "Song Link"
-        ),
-        Song (
-            "New Song Name",
-            link = "Song Link"
-        )
-    )
-
-    // Hip-Hop
-    val hiphop_artist1_songList: List<Song> = listOf(
-        Song(
-            "Top Song Name",
-            link = "Song Link"
-        ),
-        Song (
-            "New Song Name",
-            link = "Song Link"
-        )
-    )
-    val hiphop_artist2_songList: List<Song> = listOf(
-        Song(
-            "Top Song Name",
-            link = "Song Link"
-        ),
-        Song (
-            "New Song Name",
-            link = "Song Link"
-        )
-    )
 
     // ----------------------------------------------
     // New releases for each genre.
 
     val pop_newReleases: List<Song> = listOf(
         Song(
+            R.drawable.album_placeholder,
             "New Release Name",
             "Artist Name",
             "Album Name",
             "Song Link"
         ),
         Song (
+            R.drawable.album_placeholder,
             "New Release Name",
             "Artist Name",
             "Album Name",
             "Song Link"
         ),
         Song(
+            R.drawable.album_placeholder,
             "New Release Name",
             "Artist Name",
             "Album Name",
             "Song Link"
         ),
         Song (
+            R.drawable.album_placeholder,
             "New Release Name",
             "Artist Name",
             "Album Name",
@@ -86,24 +44,28 @@ object Songs {
 
     val hiphop_newReleases: List<Song> = listOf(
         Song(
+            R.drawable.album_placeholder,
             "New Release Name",
             "Artist Name",
             "Album Name",
             "Song Link"
         ),
         Song (
+            R.drawable.album_placeholder,
             "New Release Name",
             "Artist Name",
             "Album Name",
             "Song Link"
         ),
         Song(
+            R.drawable.album_placeholder,
             "New Release Name",
             "Artist Name",
             "Album Name",
             "Song Link"
         ),
         Song (
+            R.drawable.album_placeholder,
             "New Release Name",
             "Artist Name",
             "Album Name",

@@ -16,9 +16,9 @@ data class Genre(
  * A data class to represent the information presented in artist cards.
  */
 data class Artist(
-    @DrawableRes val imageResourceId: Int,
     val name: String,
-    val songs: List<Song>
+    val recentSong: Song,
+    val topSong: Song
 )
 
 /**
@@ -26,6 +26,7 @@ data class Artist(
  * Link parameter is the link to the song on YT or Spotify.
  */
 data class Song(
+    @DrawableRes val image: Int,
     val name: String,
     val artist: String = "",
     val album: String = "",

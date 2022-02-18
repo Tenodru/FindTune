@@ -54,7 +54,7 @@ class ArtistCardAdapter (
     val newReleasesList = genre.newReleases
 
     class ArtistCardViewHolder(view: View?) : RecyclerView.ViewHolder(view!!) {
-        val artist: ImageView = view!!.findViewById(R.id.recentSongImage)
+        val recentSong: ImageView = view!!.findViewById(R.id.recentSongImage)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtistCardViewHolder {
@@ -69,7 +69,7 @@ class ArtistCardAdapter (
         val resources = context?.resources
 
         val item = artistList[position]
-        holder.genreImage.setImageResource((item.imageResourceId))
+        holder.recentSong.setImageResource((item.imageResourceId))
         holder.itemView.setOnClickListener {
             listener(item)
         }
