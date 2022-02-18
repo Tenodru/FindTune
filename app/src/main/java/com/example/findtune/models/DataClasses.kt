@@ -9,7 +9,7 @@ data class Genre(
     @DrawableRes val imageResourceId: Int,
     val name: String,
     val topArtists: List<Artist>,
-    val newArtists: List<Artist>
+    val newReleases: List<Song>
 )
 
 /**
@@ -18,18 +18,7 @@ data class Genre(
 data class Artist(
     @DrawableRes val imageResourceId: Int,
     val name: String,
-    val topAlbum: Album,
-    val recentAlbum: Album
-)
-
-/**
- * A data class to represent album information.
- */
-data class Album(
-    @DrawableRes val imageResourceId: Int,
-    val name: String,
-    val releaseDate: String,
-    val songList: List<Song>
+    val songs: List<Song>
 )
 
 /**

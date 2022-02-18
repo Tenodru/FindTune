@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
-import com.example.findtune.GenreCardAdapter
 import com.example.findtune.models.*
 
 class MainActivity : AppCompatActivity() {
@@ -34,6 +33,8 @@ class MainActivity : AppCompatActivity() {
 
     fun enterArtistScreen(genre: Genre) {
         setContentView(R.layout.activity_artists_screen)
+        val recyclerView = findViewById<RecyclerView>(R.id.grid_recycler_view)
+
     }
 
     // Test
