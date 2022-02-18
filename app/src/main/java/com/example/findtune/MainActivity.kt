@@ -3,6 +3,7 @@ package com.example.findtune
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.findtune.models.*
 
@@ -27,14 +28,14 @@ class MainActivity : AppCompatActivity() {
     private fun enterGenreScreen() {
         setContentView(R.layout.activity_genres_screen)
         val recyclerView = findViewById<RecyclerView>(R.id.grid_recycler_view)
-        recyclerView.adapter = GenreCardAdapter(this) {item -> enterArtistScreen(item)}
+        recyclerView.adapter = GenreCardAdapter(this) {genreItem -> enterArtistScreen(genreItem)}
         recyclerView.setHasFixedSize(true)
     }
 
     fun enterArtistScreen(genre: Genre) {
         setContentView(R.layout.activity_artists_screen)
         val recyclerView = findViewById<RecyclerView>(R.id.grid_recycler_view)
-
+        Toast.makeText(this, "please work", Toast.LENGTH_SHORT).show()
     }
 
     // Test
