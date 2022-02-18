@@ -12,19 +12,20 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="203dp"
-        android:layout_height="261dp">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/song1Image"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
             android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/song1Artist"
             app:srcCompat="@drawable/pop"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -33,35 +34,41 @@
             android:layout_width="160dp"
             android:layout_height="22dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:text="Taylor Swift"
-            android:textSize="10sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/song1Name" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/song1Album"
             android:layout_width="160dp"
-            android:layout_height="22dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:text="1989 (Taylor's Version)"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/song1Artist" />
+            app:layout_constraintTop_toBottomOf="@+id/song1Name"
+            app:layout_constraintVertical_bias="0.128" />
 
         <TextView
             android:id="@+id/song1Name"
             android:layout_width="160dp"
-            android:layout_height="24dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="20dp"
+            android:autoText="true"
             android:text="Blank Space"
             android:textSize="12sp"
             android:textStyle="italic"
