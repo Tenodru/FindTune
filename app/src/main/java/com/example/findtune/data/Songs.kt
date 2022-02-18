@@ -13,32 +13,32 @@ object Songs {
 
     val pop_newReleases: List<Song> = listOf(
         Song(
-            R.drawable.album_placeholder,
-            "New Release Name",
-            "Artist Name",
-            "Album Name",
-            "Song Link"
+            R.drawable.edsheeran,
+            "The Joker And The Queen (feat. Taylor Swift)",
+            "Ed Sheeran",
+            "Single",
+            "https://www.youtube.com/watch?v=2qzcHLyv3N0&ab_channel=EdSheeran"
         ),
         Song (
-            R.drawable.album_placeholder,
-            "New Release Name",
-            "Artist Name",
-            "Album Name",
-            "Song Link"
+            R.drawable.mxmtoon,
+            "mona lisa",
+            "mxmtoon",
+            "Single",
+            "https://www.youtube.com/watch?v=m8mJIiMdtks&ab_channel=mxmtoon"
         ),
         Song(
-            R.drawable.album_placeholder,
-            "New Release Name",
-            "Artist Name",
-            "Album Name",
-            "Song Link"
+            R.drawable.kimpetras,
+            "Sl*t Pop",
+            "Kim Petras",
+            "Sl*t Pop",
+            "https://www.youtube.com/watch?v=gDuCIDJtpjo&ab_channel=KimPetrasVEVO"
         ),
         Song (
-            R.drawable.album_placeholder,
-            "New Release Name",
-            "Artist Name",
-            "Album Name",
-            "Song Link"
+            R.drawable.vancejoy,
+            "Missing Piece",
+            "Vance Joy",
+            "Don't Fade",
+            "https://www.youtube.com/watch?v=atka_0TUTLM&ab_channel=VanceJoy"
         )
     )
 
@@ -70,6 +70,37 @@ object Songs {
             "Pusha T",
             "Diet Coke",
             "https://www.youtube.com/watch?v=HFrwm6oRYJg&ab_channel=PushaTVEVO"
+        )
+    )
+
+    val country_newReleases: List<Song> = listOf(
+        Song(
+            R.drawable.dustinlynchthinkingboutyou,
+            "Thinking ‘Bout You (feat. MacKenzie Porter)",
+            "Dustin Lynch",
+            "Blue In The Sky",
+            "https://www.youtube.com/watch?v=nqCQfwhYfXE&ab_channel=DustinLynchVEVO"
+        ),
+        Song (
+            R.drawable.orvillepeck,
+            "C’mon Baby, Cry",
+            "Orville Peck",
+            "Bronco: Chapter 1",
+            "https://www.youtube.com/watch?v=DY_jTTOkGUo&ab_channel=OrvillePeckVEVO"
+        ),
+        Song(
+            R.drawable.priscillablock,
+            "Just About Over You",
+            "Priscilla Block",
+            "Welcome To The Block Party",
+            "https://www.youtube.com/watch?v=J1Jrp0tiRGk&ab_channel=PriscillaBlockVEVO"
+        ),
+        Song (
+            R.drawable.marenmorris,
+            "Background Music",
+            "Maren Morris",
+            "Single",
+            "https://www.youtube.com/watch?v=Jk5kiAURAeU&ab_channel=MarenMorrisVEVO"
         )
     )
 

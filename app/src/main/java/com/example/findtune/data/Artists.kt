@@ -12,29 +12,67 @@ object Artists {
     // Pop
     val popArtists: List<Artist> = listOf (
         Artist(
-            "Artist Name",
+            "Taylor Swift",
             Song (
-                R.drawable.album_placeholder,
-                "Recent Song Name",
-                link = "Song Link"
+                R.drawable.taylorswiftalltoowell,
+                "All Too Well (10 Minute Version) (Taylor's Version)",
+                link = "https://www.youtube.com/watch?v=tollGa3S0o8&ab_channel=TaylorSwiftVEVO"
                     ),
             Song (
-                R.drawable.album_placeholder,
-                "Top Song Name",
-                link = "Song Link"
+                R.drawable.taylorswiftblankspace,
+                "Blank Space",
+                link = "https://www.youtube.com/watch?v=e-ORhEE9VVg&ab_channel=TaylorSwiftVEVO"
                     )
-            ),
+        ),
         Artist(
-            "Artist Name",
+            "Lil Nas X",
             Song (
-                R.drawable.album_placeholder,
-                "Recent Song Name",
-                link = "Song Link"
+                R.drawable.lilnasxindustrybaby,
+                "INDUSTRY BABY (feat. Jack Harlow)",
+                link = "https://www.youtube.com/watch?v=UTHLKHL_whs&ab_channel=LilNasXVEVO"
             ),
             Song (
-                R.drawable.album_placeholder,
-                "Top Song Name",
-                link = "Song Link"
+                R.drawable.lilnasxmontero,
+                "MONTERO (Call Me By Your Name)",
+                link = "https://www.youtube.com/watch?v=6swmTBVI83k"
+            )
+        ),
+        Artist(
+            "Adele",
+            Song (
+                R.drawable.adeleeasyonme,
+                "Easy On Me",
+                link = "https://www.youtube.com/watch?v=U3ASj1L6_sY&ab_channel=AdeleVEVO"
+            ),
+            Song (
+                R.drawable.adelehello,
+                "Hello",
+                link = "https://www.youtube.com/watch?v=YQHsXMglC9A&ab_channel=AdeleVEVO"
+            )
+        ),
+        Artist(
+            "Doja Cat",
+            Song (
+                R.drawable.dojacatcelebrityskin,
+                "Celebrity Skin (feat. SZA)",
+                link = "https://www.youtube.com/watch?v=G7JEyMDyGZ8&ab_channel=dojacatVEVO"
+            ),
+            Song (
+                R.drawable.dojacatkissmemore,
+                "Kiss Me More",
+                link = "https://www.youtube.com/watch?v=0EVVKs6DQLo&ab_channel=dojacatVEVO"
+            )
+        ),Artist(
+            "The Weeknd",
+            Song (
+                R.drawable.theweekndrecent,
+                "Sacrifice",
+                link = "https://www.youtube.com/watch?v=VafTMsrnSTU&ab_channel=TheWeekndVEVO"
+            ),
+            Song (
+                R.drawable.theweekndtop,
+                "Blinding Lights",
+                link = "https://www.youtube.com/watch?v=4NRXx6U8ABQ&ab_channel=TheWeekndVEVO"
             )
         )
     )
@@ -104,6 +142,75 @@ object Artists {
                 R.drawable.itwaswritten_nas,
                 "If I Ruled the World (Imagine That) (feat. Lauryn Hill)",
                 link = "https://www.youtube.com/watch?v=mlp-IIG9ApU&ab_channel=NasVEVO"
+            )
+        )
+    )
+
+    // Country
+    val countryArtists: List<Artist> = listOf (
+        Artist(
+            "Morgan Wallen",
+            Song (
+                R.drawable.morganwallenmorethanmyhometown,
+                "More Than My Hometown",
+                link = "https://www.youtube.com/watch?v=MS82JAkBkDY&ab_channel=MorganWallenVEVO"
+            ),
+            Song (
+                R.drawable.morganwallenwhiskeyglasses,
+                "Whiskey Glasses",
+                link = "https://www.youtube.com/watch?v=FjBp30kjzTc&ab_channel=MorganWallenVEVO"
+            )
+        ),
+        Artist(
+            "Luke Combs",
+            Song (
+                R.drawable.lukecombsdointhis,
+                "Doin' This",
+                link = "https://www.youtube.com/watch?v=2YSqaI3IBpo&ab_channel=LukeCombsVEVO"
+            ),
+            Song (
+                R.drawable.lukecombsbeautifulcrazy,
+                "Beautiful Crazy",
+                link = "https://www.youtube.com/watch?v=rItv9i6c7AY&ab_channel=LukeCombsVEVO"
+            )
+        ),
+        Artist(
+            "Chris Stapleton",
+            Song (
+                R.drawable.chrisstapletonstartingover,
+                "Starting Over",
+                link = "https://www.youtube.com/watch?v=A3svABDnmio&ab_channel=ChrisStapletonVEVO"
+            ),
+            Song (
+                R.drawable.chrisstapletontennesseewhiskey,
+                "Tennessee Whiskey",
+                link = "https://www.youtube.com/watch?v=4zAThXFOy2c&ab_channel=ChrisStapletonVEVO"
+            )
+        ),
+        Artist(
+            "Gabby Barrett",
+            Song (
+                R.drawable.gabbybarrett,
+                "I Hope",
+                link = "https://www.youtube.com/watch?v=qcCH6JpcK5w&ab_channel=GabbyBarrett"
+            ),
+            Song (
+                R.drawable.gabbybarrett,
+                "I Hope",
+                link = "https://www.youtube.com/watch?v=qcCH6JpcK5w&ab_channel=GabbyBarrett"
+            )
+        ),
+        Artist(
+            "Luke Bryan",
+            Song (
+                R.drawable.tomorrow_nas,
+                "Songs You Never Heard",
+                link = "https://www.youtube.com/watch?v=g8Kc7ux-TYg&ab_channel=LukeBryan-Topic"
+            ),
+            Song (
+                R.drawable.itwaswritten_nas,
+                "Play It Again",
+                link = "https://www.youtube.com/watch?v=ALV-QtDFpSw&ab_channel=LukeBryanVEVO"
             )
         )
     )

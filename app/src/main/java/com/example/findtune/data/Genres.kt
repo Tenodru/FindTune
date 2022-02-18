@@ -22,6 +22,12 @@ object Genres {
             Songs.hiphop_newReleases
                 ),
         Genre (
+            R.drawable.country,
+            "Country",
+            Artists.countryArtists,
+            Songs.country_newReleases
+        ),
+        Genre (
             R.drawable.latin,
             "Latin",
             Artists.latinArtists,
