@@ -33,9 +33,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun enterArtistScreen(genre: Genre) {
+        Toast.makeText(this, genre.topArtists[0].name, Toast.LENGTH_SHORT).show()
         setContentView(R.layout.activity_artists_screen)
-        val recyclerView = findViewById<RecyclerView>(R.id.grid_recycler_view)
-        Toast.makeText(this, "please work", Toast.LENGTH_SHORT).show()
+        val recyclerView = findViewById<RecyclerView>(R.id.vertical_recycler_view)
+        recyclerView.adapter = ArtistCardAdapter(this, genre) {songItem -> goToSongLink(songItem)}
+    }
+
+    fun goToSongLink(song: Song) {
+        TODO("Open up song link in browser.")
     }
 
     // Test
