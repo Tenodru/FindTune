@@ -53,6 +53,11 @@ class ArtistCardAdapter (
 ): RecyclerView.Adapter<ArtistCardAdapter.ArtistCardViewHolder>() {
     val artistList = genre.topArtists
     val newReleasesList = genre.newReleases
+    val mainList = artistList + newReleasesList
+
+    override fun getItemViewType(position: Int): Int {
+        return super.getItemViewType(position)
+    }
 
     class ArtistCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val artistName: TextView = itemView.findViewById(R.id.artistName)

@@ -33,10 +33,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun enterArtistScreen(genre: Genre) {
-        Toast.makeText(this, genre.topArtists[0].name, Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, genre.topArtists[0].name, Toast.LENGTH_SHORT).show()
         setContentView(R.layout.activity_artists_screen)
         val recyclerView = findViewById<RecyclerView>(R.id.vertical_recycler_view)
         recyclerView.adapter = ArtistCardAdapter(this, genre) {songItem -> goToSongLink(songItem)}
+        //val recyclerView2 = findViewById<RecyclerView>(R.id.new_releases_recyclerview)
+        //recyclerView2.adapter = ArtistCardAdapter(this, genre) {songItem -> goToSongLink(songItem)}
     }
 
     fun goToSongLink(song: Song) {

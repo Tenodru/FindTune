@@ -12,74 +12,34 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/artistName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:text="Taylor Swift"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/mostRecentLabel"
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="15dp"
-            android:text="Most Recent"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/recentSongImage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/artistName" />
-
-        <TextView
-            android:id="@+id/topSongLabel"
-            android:layout_width="160dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="15dp"
-            android:text="Top Song"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/topSongImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/artistName" />
+        android:layout_height="261dp">
 
         <ImageView
-            android:id="@+id/recentSongImage"
+            android:id="@+id/song1Image"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="10dp"
             android:clickable="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/artistName"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/pop"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageView
-            android:id="@+id/topSongImage"
+            android:id="@+id/song2Image"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/artistName"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/pop"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/topSongName"
+            android:id="@+id/song2Name"
             android:layout_width="160dp"
             android:layout_height="22dp"
             android:layout_marginTop="4dp"
@@ -90,36 +50,56 @@
             app:autoSizeMaxTextSize="12dp"
             app:autoSizeMinTextSize="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topSongImage" />
+            app:layout_constraintTop_toBottomOf="@+id/song2Image" />
 
         <TextView
-            android:id="@+id/recentSongEP"
+            android:id="@+id/song1Artist"
             android:layout_width="160dp"
             android:layout_height="22dp"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="10dp"
+            android:text="Taylor Swift"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/song1Name" />
+
+        <TextView
+            android:id="@+id/song1Album"
+            android:layout_width="160dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
             android:text="1989 (Taylor's Version)"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recentSongName"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/song1Artist" />
 
         <TextView
-            android:id="@+id/topSongEP"
+            android:id="@+id/song2Album"
             android:layout_width="160dp"
             android:layout_height="22dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
-            android:text="Red (Taylor's Version)"
+            android:layout_marginBottom="20dp"
+            android:text="1989 (Taylor's Version)"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topSongName"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/song2Artist" />
 
         <TextView
-            android:id="@+id/recentSongName"
+            android:id="@+id/song2Artist"
+            android:layout_width="160dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="20dp"
+            android:text="Taylor Swift"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/song2Name" />
+
+        <TextView
+            android:id="@+id/song1Name"
             android:layout_width="160dp"
             android:layout_height="24dp"
             android:layout_marginStart="20dp"
@@ -130,7 +110,7 @@
             app:autoSizeMaxTextSize="12dp"
             app:autoSizeMinTextSize="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recentSongImage" />
+            app:layout_constraintTop_toBottomOf="@+id/song1Image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
