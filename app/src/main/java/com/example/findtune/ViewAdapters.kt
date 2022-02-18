@@ -1,6 +1,7 @@
 package com.example.findtune
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,7 +54,6 @@ class ArtistCardAdapter (
 ): RecyclerView.Adapter<ArtistCardAdapter.ArtistCardViewHolder>() {
     val artistList = genre.topArtists
     val newReleasesList = genre.newReleases
-    val mainList = artistList + newReleasesList
 
     override fun getItemViewType(position: Int): Int {
         return super.getItemViewType(position)
@@ -95,6 +95,48 @@ class ArtistCardAdapter (
         }
         holder.topSongImage.setOnClickListener {
             listener(item.topSong)
+            //Toast.makeText(context, "please work", Toast.LENGTH_SHORT).show()
+        }
+    }
+}
+
+class NewReleasesCardAdapter (
+    private val context: Context?,
+    private val genre: Genre,
+    private val listener: (Song) -> Unit
+): RecyclerView.Adapter<NewReleasesCardAdapter.NewReleasesCardViewHolder>() {
+    val newReleasesList = genre.newReleases
+
+    override fun getItemViewType(position: Int): Int {
+        return super.getItemViewType(position)
+    }
+
+    class NewReleasesCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val song1Image: ImageView = itemView.findViewById(R.id.song1Image)
+        val song1Name: TextView = itemView.findViewById(R.id.song1Name)
+        val song1Artist: TextView = itemView.findViewById(R.id.song1Artist)
+        val song1Album: TextView = itemView.findViewById(R.id.song1Album)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewReleasesCardViewHolder {
+        val viewLayout =
+            LayoutInflater.from(parent.context).inflate(R.layout.new_release_item, parent, false)
+        return NewReleasesCardViewHolder(viewLayout)
+    }
+
+    override fun getItemCount(): Int = newReleasesList.size
+
+    override fun onBindViewHolder(holder: NewReleasesCardViewHolder, position: Int) {
+        val resources = context?.resources
+
+        val item = newReleasesList[position]
+        holder.song1Image.setImageResource((item.image))
+        holder.song1Name.text = item.name
+        holder.song1Artist.text = item.artist
+        holder.song1Album.text = item.album
+
+        holder.song1Image.setOnClickListener {
+            listener(item)
             //Toast.makeText(context, "please work", Toast.LENGTH_SHORT).show()
         }
     }
