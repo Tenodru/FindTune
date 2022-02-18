@@ -40,3 +40,33 @@ class GenreCardAdapter (
         }
     }
 }
+
+class ArtistCardAdapter (
+    private val context: Context?,
+    private val genre: Genre,
+    private val listener: (Artist) -> Unit
+): RecyclerView.Adapter<ArtistCardAdapter.ArtistCardViewHolder>() {
+    val artistList = genre.topArtists
+
+    class ArtistCardViewHolder(view: View?) : RecyclerView.ViewHolder(view!!) {
+        val genreImage: ImageView = view!!.findViewById(R.id.genreImage)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtistCardViewHolder {
+        val viewLayout =
+            LayoutInflater.from(parent.context).inflate(R.layout.genre_list_item, parent, false)
+        return ArtistCardViewHolder(viewLayout)
+    }
+
+    override fun getItemCount(): Int = artistList.size
+
+    override fun onBindViewHolder(holder: ArtistCardViewHolder, position: Int) {
+        val resources = context?.resources
+
+        val item = artistList[position]
+        holder.genreImage.setImageResource((item.imageResourceId))
+        holder.itemView.setOnClickListener {
+            listener(item)
+        }
+    }
+}

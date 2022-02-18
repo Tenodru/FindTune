@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
 
     fun enterArtistScreen(genre: Genre) {
         setContentView(R.layout.activity_artists_screen)
+        val recyclerView = findViewById<RecyclerView>(R.id.grid_recycler_view)
+
     }
 
     // Test

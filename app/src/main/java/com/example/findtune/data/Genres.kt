@@ -12,14 +12,14 @@ object Genres {
         Genre (
             R.drawable.pop,
             "Pop",
-            Artists.popArtistsTop,
-            Artists.popArtistsNew
+            Artists.popArtists,
+            Songs.pop_newReleases
                 ),
         Genre (
             R.drawable.hiphop,
             "Hip-Hop",
-            Artists.hiphopArtistsTop,
-            Artists.hiphopArtistsNew
+            Artists.hiphopArtists,
+            Songs.hiphop_newReleases
                 )
     )
 

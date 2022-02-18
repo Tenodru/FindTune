@@ -9,38 +9,30 @@ import com.example.findtune.models.Artist
 object Artists {
 
     // Pop
-    val popArtistsTop: List<Artist> = listOf (
+    val popArtists: List<Artist> = listOf (
         Artist(
             R.drawable.artist_placeholder,
             "Artist Name",
-            Albums.album_artist1,
-            Albums.album2_artist1
-            )
-    )
-    val popArtistsNew: List<Artist> = listOf (
+            Songs.pop_artist1_songList
+            ),
         Artist(
             R.drawable.artist_placeholder,
             "Artist Name",
-            Albums.album_artist1,
-            Albums.album2_artist1
+            Songs.pop_artist2_songList
         )
     )
 
     // Hip-Hop
-    val hiphopArtistsTop: List<Artist> = listOf (
+    val hiphopArtists: List<Artist> = listOf (
         Artist(
             R.drawable.artist_placeholder,
             "Artist Name",
-            Albums.album_artist1,
-            Albums.album2_artist1
-        )
-    )
-    val hiphopArtistsNew: List<Artist> = listOf (
+            Songs.hiphop_artist1_songList
+        ),
         Artist(
             R.drawable.artist_placeholder,
             "Artist Name",
-            Albums.album_artist1,
-            Albums.album2_artist1
+            Songs.hiphop_artist2_songList
         )
     )
 }
