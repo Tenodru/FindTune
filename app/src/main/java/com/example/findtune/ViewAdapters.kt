@@ -11,17 +11,16 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.findtune.data.*
 import com.example.findtune.models.*
+import com.example.findtune.OnClickListener
 
 class GenreCardAdapter (
-    private val context: Context?
+    private val context: Context?,
+    private val listener: (Genre) -> Unit
         ): RecyclerView.Adapter<GenreCardAdapter.GenreCardViewHolder>() {
     val genreList = Genres.genres
 
-    class GenreCardViewHolder(view: View?): RecyclerView.ViewHolder(view!!) {
+    class GenreCardViewHolder(view: View?): RecyclerView.ViewHolder(view!!){
         val genreImage : ImageView = view!!.findViewById(R.id.genreImage)
-        var genreName : String = ""
-        var genreArtistsTop = listOf<Artist>()
-        var genreArtistsNew = listOf<Artist>()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenreCardViewHolder {
@@ -36,11 +35,8 @@ class GenreCardAdapter (
 
         val genreItem = genreList[position]
         holder.genreImage.setImageResource((genreItem.imageResourceId))
-        holder.genreImage.setOnClickListener{
-            fun GetPosition(): Genre {
-                return (genreItem)
-            }
+        holder.itemView.setOnClickListener {
+            listener(genreItem)
         }
     }
-
 }
