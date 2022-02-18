@@ -22,23 +22,35 @@ object Genres {
             Songs.hiphop_newReleases
                 ),
         Genre (
+            R.drawable.latin,
+            "Latin",
+            Artists.latinArtists,
+            Songs.latin_newReleases
+                ),
+        Genre (
+            R.drawable.rnb,
+            "R&B",
+            Artists.rnbArtists,
+            Songs.rnb_newReleases
+                ),
+        Genre (
             R.drawable.rock,
             "Rock",
             Artists.rockArtists,
             Songs.rock_newReleases
-        ),
+                ),
         Genre (
             R.drawable.jazz,
             "Jazz",
             Artists.jazzArtists,
             Songs.jazz_newReleases
-        ),
+                ),
         Genre (
             R.drawable.kpop,
             "K-Pop",
             Artists.kpopArtists,
             Songs.kpop_newReleases
-        )
+                )
     )
 
 
