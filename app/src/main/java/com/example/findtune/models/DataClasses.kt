@@ -27,5 +27,7 @@ data class Artist(
  */
 data class Song(
     val name: String,
+    val artist: String = "",
+    val album: String = "",
     val link: String
 )
