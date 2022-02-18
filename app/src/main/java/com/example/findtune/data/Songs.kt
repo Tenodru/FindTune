@@ -14,21 +14,21 @@ object Songs {
     val pop_artist1_songList: List<Song> = listOf(
         Song(
             "Top Song Name",
-            "Song Link"
+            link = "Song Link"
                 ),
         Song (
             "New Song Name",
-            "Song Link"
+            link = "Song Link"
                 )
     )
     val pop_artist2_songList: List<Song> = listOf(
         Song(
             "Top Song Name",
-            "Song Link"
+            link = "Song Link"
         ),
         Song (
             "New Song Name",
-            "Song Link"
+            link = "Song Link"
         )
     )
 
@@ -36,21 +36,21 @@ object Songs {
     val hiphop_artist1_songList: List<Song> = listOf(
         Song(
             "Top Song Name",
-            "Song Link"
+            link = "Song Link"
         ),
         Song (
             "New Song Name",
-            "Song Link"
+            link = "Song Link"
         )
     )
     val hiphop_artist2_songList: List<Song> = listOf(
         Song(
             "Top Song Name",
-            "Song Link"
+            link = "Song Link"
         ),
         Song (
             "New Song Name",
-            "Song Link"
+            link = "Song Link"
         )
     )
 
@@ -60,18 +60,26 @@ object Songs {
     val pop_newReleases: List<Song> = listOf(
         Song(
             "New Release Name",
+            "Artist Name",
+            "Album Name",
             "Song Link"
         ),
         Song (
             "New Release Name",
+            "Artist Name",
+            "Album Name",
             "Song Link"
         ),
         Song(
             "New Release Name",
+            "Artist Name",
+            "Album Name",
             "Song Link"
         ),
         Song (
             "New Release Name",
+            "Artist Name",
+            "Album Name",
             "Song Link"
         )
     )
@@ -79,18 +87,26 @@ object Songs {
     val hiphop_newReleases: List<Song> = listOf(
         Song(
             "New Release Name",
+            "Artist Name",
+            "Album Name",
             "Song Link"
         ),
         Song (
             "New Release Name",
+            "Artist Name",
+            "Album Name",
             "Song Link"
         ),
         Song(
             "New Release Name",
+            "Artist Name",
+            "Album Name",
             "Song Link"
         ),
         Song (
             "New Release Name",
+            "Artist Name",
+            "Album Name",
             "Song Link"
         )
     )
