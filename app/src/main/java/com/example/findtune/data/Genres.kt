@@ -20,7 +20,25 @@ object Genres {
             "Hip-Hop",
             Artists.hiphopArtists,
             Songs.hiphop_newReleases
-                )
+                ),
+        Genre (
+            R.drawable.rock,
+            "Rock",
+            Artists.rockArtists,
+            Songs.rock_newReleases
+        ),
+        Genre (
+            R.drawable.jazz,
+            "Jazz",
+            Artists.jazzArtists,
+            Songs.jazz_newReleases
+        ),
+        Genre (
+            R.drawable.kpop,
+            "K-Pop",
+            Artists.kpopArtists,
+            Songs.kpop_newReleases
+        )
     )
 
 

@@ -177,6 +177,75 @@ object Artists {
         )
     )
 
+    // Rock
+    val rockArtists: List<Artist> = listOf (
+        Artist(
+            "Glass Animals",
+            Song (
+                R.drawable.glassanimalsidontwannatalk,
+                "I Don't Wanna Talk (I Just Wanna Dance)",
+                link = "https://www.youtube.com/watch?v=9nrEaHinGmY&ab_channel=GlassAnimalsVEVO"
+            ),
+            Song (
+                R.drawable.glassanimalsheatwaves,
+                "Heat Waves",
+                link = "https://www.youtube.com/watch?v=mRD0-GxqHVo&ab_channel=GlassAnimalsVEVO"
+            )
+        ),
+        Artist(
+            "Machine Gun Kelly",
+            Song (
+                R.drawable.mgkemogirl,
+                "emo girl (feat. WILLOW)",
+                link = "https://www.youtube.com/watch?v=yh_ydvIJAxg&ab_channel=MGKVEVO"
+            ),
+            Song (
+                R.drawable.mgkbadthings,
+                "Bad Things (feat. Camila Cabello)",
+                link = "https://www.youtube.com/watch?v=QpbQ4I3Eidg&ab_channel=MGKVEVO"
+            )
+        ),
+        Artist(
+            "Imagine Dragons",
+            Song (
+                R.drawable.imaginedragonsenemy,
+                "Enemy (with J.I.D)",
+                link = "https://www.youtube.com/watch?v=D9G1VOjN_84&ab_channel=ImagineDragonsVEVO"
+            ),
+            Song (
+                R.drawable.imaginedragonsbeliever,
+                "Believer",
+                link = "https://www.youtube.com/watch?v=7wtfhZwyrcc&ab_channel=ImagineDragonsVEVO"
+            )
+        ),
+        Artist(
+            "Fleetwood Mac",
+            Song (
+                R.drawable.fmacmadisonblues,
+                "Madison Blues",
+                link = "https://www.youtube.com/watch?v=XNWmcMKMyXs&ab_channel=fleetwoodmacVEVO"
+            ),
+            Song (
+                R.drawable.fmacdreams,
+                "Dreams",
+                link = "https://www.youtube.com/watch?v=Y3ywicffOj4&ab_channel=FleetwoodMac"
+            )
+        ),
+        Artist(
+            "AJR",
+            Song (
+                R.drawable.ajrrecordplayer,
+                "Record Player (feat. Daisy the Great)",
+                link = "https://www.youtube.com/watch?v=3x2xtPV9oxQ&ab_channel=DaisytheGreat"
+            ),
+            Song (
+                R.drawable.ajrweak,
+                "Weak",
+                link = "https://www.youtube.com/watch?v=txCCYBMKdB0&ab_channel=AJR"
+            )
+        )
+    )
+
     // Latin
     val latinArtists: List<Artist> = listOf (
         Artist(
@@ -242,6 +311,144 @@ object Artists {
                 R.drawable.oasis,
                 "LA CANCION (feat. Bad Bunny)",
                 link = "https://www.youtube.com/watch?v=LxOTsiV4tkQ&ab_channel=BadBunny"
+            )
+        )
+    )
+
+    // Jazz
+    val jazzArtists: List<Artist> = listOf (
+        Artist(
+            "Nils",
+            Song (
+                R.drawable.tripampool,
+                "Trip am Pool",
+                link = "https://www.youtube.com/watch?v=OF6ZD5zemKc&ab_channel=Nils-Topic"
+            ),
+            Song (
+                R.drawable.pacificcoasthighway,
+                "Summer Nights",
+                link = "https://www.youtube.com/watch?v=7gNhXe-TJYE&ab_channel=Nils-Topic"
+            )
+        ),
+        Artist(
+            "Gerald Albright",
+            Song (
+                R.drawable.gstream,
+                "Hope",
+                link = "https://www.youtube.com/watch?v=ITm1tvuoNHo&ab_channel=GeraldAlbright-Topic"
+            ),
+            Song (
+                R.drawable.slamdunk,
+                "Because of You",
+                link = "https://www.youtube.com/watch?v=iKBx3xNGJmQ&ab_channel=swisslion11"
+            )
+        ),
+        Artist(
+            "Adam Hawley",
+            Song (
+                R.drawable.risinup,
+                "Risin' Up",
+                link = "https://www.youtube.com/watch?v=JrUjxdtN4mQ&ab_channel=AdamHawley-Topic"
+            ),
+            Song (
+                R.drawable.doublevision,
+                "Just Dance",
+                link = "https://www.youtube.com/watch?v=dj18_9FRyh8&ab_channel=AdamHawley-Topic"
+            )
+        ),
+        Artist(
+            "Richard Elliot",
+            Song (
+                R.drawable.authenticlife,
+                "Snapshot",
+                link = "https://www.youtube.com/watch?v=CWjTsWpGsyw&ab_channel=Stereophile1isback"
+            ),
+            Song (
+                R.drawable.chillfactor,
+                "Chill Factor",
+                link = "https://www.youtube.com/watch?v=Xqn87Kcep_s&ab_channel=RobertoCastillo2184"
+            )
+        ),
+        Artist(
+            "Jeff Ryan",
+            Song (
+                R.drawable.duality,
+                "Double Up",
+                link = "https://www.youtube.com/watch?v=EizOg2_-Fhk&ab_channel=JeffRyan-Topic"
+            ),
+            Song (
+                R.drawable.embrace,
+                "Embrace",
+                link = "https://www.youtube.com/watch?v=b97A2vMte1M&ab_channel=JeffRyan-Topic"
+            )
+        )
+    )
+
+    // K-Pop
+    val kpopArtists: List<Artist> = listOf (
+        Artist(
+            "BTS",
+            Song (
+                R.drawable.btsmyuniverse,
+                "My Universe",
+                link = "https://www.youtube.com/watch?v=3YqPKLZF_WU&ab_channel=Coldplay"
+            ),
+            Song (
+                R.drawable.btsdynamite,
+                "Dynamite",
+                link = "https://www.youtube.com/watch?v=gdZLi9oWNZg&ab_channel=HYBELABELS"
+            )
+        ),
+        Artist(
+            "Blackpink",
+            Song (
+                R.drawable.blackpinklovesickgirls,
+                "Lovesick Girls",
+                link = "https://www.youtube.com/watch?v=dyRsYk0LyA8&ab_channel=BLACKPINK"
+            ),
+            Song (
+                R.drawable.blackpinkhowyoulikethat,
+                "How You Like That",
+                link = "https://www.youtube.com/watch?v=ioNng23DkIM&ab_channel=BLACKPINK"
+            )
+        ),
+        Artist(
+            "Seventeen",
+            Song (
+                R.drawable.seventeenrockwithyou,
+                "Rock With You",
+                link = "https://www.youtube.com/watch?v=WpuatuzSDK4&ab_channel=HYBELABELS"
+            ),
+            Song (
+                R.drawable.seventeendontwannacry,
+                "Don't Wanna Cry",
+                link = "Shttps://www.youtube.com/watch?v=zEkg4GBQumc&ab_channel=SEVENTEEN"
+            )
+        ),
+        Artist(
+            "ITZY",
+            Song (
+                R.drawable.itzyweapon,
+                "Weapon",
+                link = "https://www.youtube.com/watch?v=KJrPsT2X-yk&ab_channel=ITZY-Topic"
+            ),
+            Song (
+                R.drawable.itzywannabe,
+                "Wannabe",
+                link = "https://www.youtube.com/watch?v=fE2h3lGlOsk&ab_channel=JYPEntertainment"
+            )
+        ),
+        Artist(
+            "Enhypen",
+            Song (
+                R.drawable.enhypenfever,
+                "Fever",
+                link = "https://www.youtube.com/watch?v=X7d6Dt17yHk&ab_channel=HYBELABELS"
+            ),
+            Song (
+                R.drawable.enhypenfever,
+                "Fever",
+                link = "https://www.youtube.com/watch?v=X7d6Dt17yHk&ab_channel=HYBELABELS"
             )
         )
     )
