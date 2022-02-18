@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
-import com.example.findtune.GenreCardAdapter
 import com.example.findtune.models.*
 
 class MainActivity : AppCompatActivity() {
