@@ -1,5 +1,6 @@
 package com.example.findtune
 
+import android.content.Intent
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -40,22 +41,8 @@ class MainActivity : AppCompatActivity() {
      * App moves to genre display screen.
      */
     private fun enterGenreScreen() {
-        setContentView(R.layout.activity_genres_screen)
-        val recyclerView = findViewById<RecyclerView>(R.id.grid_recycler_view)
-        recyclerView.adapter = GenreCardAdapter(this) {genreItem -> enterArtistScreen(genreItem)}
-        recyclerView.setHasFixedSize(true)
-    }
-
-    /**
-     * App moves to artist display screen.
-     */
-    fun enterArtistScreen(genre: Genre) {
-        //Toast.makeText(this, genre.topArtists[0].name, Toast.LENGTH_SHORT).show()
-        setContentView(R.layout.activity_artists_screen)
-        val recyclerView = findViewById<RecyclerView>(R.id.vertical_recycler_view)
-        recyclerView.adapter = ArtistCardAdapter(this, genre) {songItem -> goToSongLink(songItem)}
-        val recyclerView2 = findViewById<RecyclerView>(R.id.new_releases_view)
-        recyclerView2.adapter = NewReleasesCardAdapter(this, genre) { songItem -> goToSongLink(songItem)}
+        val intent = Intent (this, GenreScreenActivity::class.java)
+        startActivity(intent)
     }
 
 

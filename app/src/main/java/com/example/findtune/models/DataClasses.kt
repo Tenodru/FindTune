@@ -1,16 +1,17 @@
 package com.example.findtune.models;
 
 import androidx.annotation.DrawableRes
+import java.io.Serializable
 
 /**
  * A data class to represent genre information.
  */
-data class Genre(
+data class Genre (
     @DrawableRes val imageResourceId: Int,
     val name: String,
     val topArtists: List<Artist>,
     val newReleases: List<Song>
-)
+) : Serializable
 
 /**
  * A data class to represent the information presented in artist cards.
@@ -19,7 +20,7 @@ data class Artist(
     val name: String,
     val recentSong: Song,
     val topSong: Song
-)
+) : Serializable
 
 /**
  * A data class to represent song information.
@@ -31,4 +32,4 @@ data class Song(
     val artist: String = "",
     val album: String = "",
     val link: String
-)
+) : Serializable
