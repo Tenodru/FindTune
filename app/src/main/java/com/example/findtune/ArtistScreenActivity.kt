@@ -1,6 +1,15 @@
+/**
+ *
+ * FindTune - The New Music Exploration App
+ * Developed by: Alex Kong, Ayesha Din, Catherine Kim, Neha Krishna
+ * Last Updated: 02/21/2022
+ *
+ */
+
 package com.example.findtune
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,8 +22,8 @@ import com.example.findtune.models.*
 class ArtistScreenActivity : AppCompatActivity() {
 
     /**
-     * Run at startup.
-     * Sets the content view to the welcome screen.
+     * Run after a genre is clicked.
+     * Sets the content view to the artist list screen.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +37,14 @@ class ArtistScreenActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
     }
 
-
+    /**
+     * Application opens song link in browser.
+     */
     fun goToSongLink(song: Song) {
-        TODO("Open up song link in browser.")
+        //Toast.makeText(this, song.link, Toast.LENGTH_SHORT).show()
+        val openURL = Intent(android.content.Intent.ACTION_VIEW)
+        openURL.data = Uri.parse(song.link)
+        startActivity(openURL)
     }
 
     // Test

@@ -1,3 +1,11 @@
+/**
+ *
+ * FindTune - The New Music Exploration App
+ * Developed by: Alex Kong, Ayesha Din, Catherine Kim, Neha Krishna
+ * Last Updated: 02/21/2022
+ *
+ */
+
 package com.example.findtune.models;
 
 import androidx.annotation.DrawableRes
