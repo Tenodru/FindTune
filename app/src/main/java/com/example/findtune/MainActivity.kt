@@ -11,12 +11,15 @@ package com.example.findtune
 import android.content.Intent
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.*
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.findtune.models.*
+import com.beust.klaxon.Klaxon
+import kotlinx.coroutines.*
 import okhttp3.*
 import java.net.URL
 
@@ -24,6 +27,9 @@ class MainActivity : AppCompatActivity() {
 
     var client: OkHttpClient = OkHttpClient()
 
+    /**
+     * Grabs request from specified API. Returns the result (should be a string).
+     */
     private fun getRequest(urlString: String): String? {
         var result: String? = null
 
@@ -41,6 +47,27 @@ class MainActivity : AppCompatActivity() {
             print ("Error sending request: " + error.localizedMessage)
         }
         return result
+    }
+
+    /**
+     * Grabs info from requested API and parses to Album JSON class.
+     */
+    private fun getInfo(urlString: String): Album? {
+        var albumInfo: Album? = null
+        lifecycleScope.launch(Dispatchers.IO) {
+            val result = getRequest(urlString)
+            if (result != null) {
+                // Parse result string to JSON.
+                try {
+                    albumInfo = Klaxon().parse<Album>(result)
+                } catch (error: Error) {
+                    print ("Error: JSON parse issue: " + error.localizedMessage)
+                }
+            } else {
+                print ("Error: Request returned no response.")
+            }
+        }
+        return albumInfo
     }
 
     /**

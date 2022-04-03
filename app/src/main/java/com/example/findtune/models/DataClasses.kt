@@ -41,3 +41,12 @@ data class Song(
     val album: String = "",
     val link: String
 ) : Serializable
+
+/**
+ * A data class to represent album information.
+ */
+data class Album(
+    @DrawableRes val image: Int,
+    val name: String,
+    val artist: String = ""
+) : Serializable
