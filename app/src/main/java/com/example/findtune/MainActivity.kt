@@ -17,8 +17,31 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.findtune.models.*
+import okhttp3.*
+import java.net.URL
 
 class MainActivity : AppCompatActivity() {
+
+    var client: OkHttpClient = OkHttpClient()
+
+    private fun getRequest(urlString: String): String? {
+        var result: String? = null
+
+        try {
+            // Create URL
+            val url = URL(urlString)
+
+            // Create Request
+            val request = Request.Builder().url(url).build()
+
+            // Send Request
+            val response = client.newCall(request).execute()
+            result = response.body?.string()
+        } catch (error: Error) {
+            print ("Error sending request: " + error.localizedMessage)
+        }
+        return result
+    }
 
     /**
      * Run at startup.
