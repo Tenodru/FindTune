@@ -65,10 +65,15 @@ data class SpotifyAlbumInfo (
     //val artists: ArrayList<String?>,
     //val images: ArrayList<String?>,
     @Json(ignored = true)
-    var artists: JSONArray = JSONArray(),
+    var artists: MutableList<SpotifyArtistInfo> = mutableListOf(),
     @Json(ignored = true)
-    var images: JSONArray = JSONArray(),
+    var image: String = "",
     val name: String,
     @Json(name = "release_date")
     val releaseDate: String,
+)
+
+data class SpotifyArtistInfo (
+    val name: String,
+    val id: String
 )

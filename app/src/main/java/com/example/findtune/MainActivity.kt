@@ -23,12 +23,14 @@ import androidx.lifecycle.lifecycleScope
 import com.beust.klaxon.Klaxon
 import com.example.findtune.models.AlbumList
 import com.example.findtune.models.SpotifyAlbumInfo
+import com.example.findtune.models.SpotifyArtistInfo
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.StringReader
 import java.net.URL
@@ -118,12 +120,19 @@ class MainActivity : AppCompatActivity() {
                     //albumInfo = Klaxon().parseFromJsonObject<AlbumList>(Klaxon().parseJsonObject(StringReader(result)))
                     var testInfo = result.getJSONObject("albums").getJSONArray("items")
                     println ("TestInfo :" + testInfo)
-                    for (i in 0 until testInfo.length()) {
-                        val album = testInfo.getJSONObject(i)
+                    for (al in 0 until testInfo.length()) {
+                        val album = testInfo.getJSONObject(al)
                         println ("Album: " + album)
                         val spotifyAlbum = Klaxon().parse<SpotifyAlbumInfo>(album.toString())!!
-                        spotifyAlbum.artists = album.getJSONArray("artists")
-                        spotifyAlbum.images = album.getJSONArray("images")
+                        val artistsArr = album.getJSONArray("artists")
+                        var spotifyArtists = mutableListOf<SpotifyArtistInfo>()
+                        for (ar in 0 until artistsArr.length()) {
+                            spotifyArtists.add(Klaxon().parse<SpotifyArtistInfo>(artistsArr.getJSONObject(ar).toString())!!)
+                        }
+                        spotifyAlbum.artists = spotifyArtists
+                        // Grabs 300x300px image URL.
+                        val imagesArr = album.getJSONArray("images")
+                        spotifyAlbum.image = imagesArr.getJSONObject(1).getString("url")
                         albumList.add(spotifyAlbum)
                     }
                     println("AlbumList: " + albumList)
