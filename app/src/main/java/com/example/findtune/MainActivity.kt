@@ -145,8 +145,4 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent (this, GenreScreenActivity::class.java)
         startActivity(intent)
     }
-
-    private fun connected() {
-        // Run when connected to Spotify.
-    }
 }
