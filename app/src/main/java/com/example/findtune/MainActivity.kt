@@ -22,12 +22,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.beust.klaxon.Klaxon
 import com.example.findtune.models.AlbumList
+import com.example.findtune.models.SpotifyAlbumInfo
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import org.json.JSONObject
+import java.io.StringReader
 import java.net.URL
 
 
@@ -42,11 +45,38 @@ class MainActivity : AppCompatActivity() {
     var accessToken = ""
 
     /**
+     * Grabs request from specified API. Returns the result (should be a JSONObject).
+     */
+    private fun getRequest(urlString: String): JSONObject? {
+        var result: JSONObject? = null
+        println ("Access? " + accessToken)
+
+        try {
+            // Create URL
+            val url = URL(urlString)
+
+            // Create Request
+            val request = Request.Builder()
+                .url(url)
+                .addHeader("Authorization", "Bearer " + accessToken)
+                .build()
+
+            // Send Request
+            val response = client.newCall(request).execute()
+            result = JSONObject(response.body?.string())
+            println ("Response: " + result)
+        } catch (error: Error) {
+            println ("Error sending request: " + error.localizedMessage)
+        }
+        return result
+    }
+
+    /**
      * Grabs request from specified API. Returns the result (should be a string).
      */
-    private fun getRequest(urlString: String): String? {
+    private fun getRequestStr(urlString: String): String? {
         var result: String? = null
-        print ("Access? " + accessToken)
+        println ("Access? " + accessToken)
 
         try {
             // Create URL
@@ -61,8 +91,9 @@ class MainActivity : AppCompatActivity() {
             // Send Request
             val response = client.newCall(request).execute()
             result = response.body?.string()
+            println ("Response: " + result)
         } catch (error: Error) {
-            print ("Error sending request: " + error.localizedMessage)
+            println ("Error sending request: " + error.localizedMessage)
         }
         return result
     }
@@ -74,21 +105,34 @@ class MainActivity : AppCompatActivity() {
         var albumInfo: AlbumList? = null
         lifecycleScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
             val result = getRequest(urlString)
+            val albumList = listOf<SpotifyAlbumInfo>()
+
             if (result != null) {
                 // Parse result string to JSON.
                 try {
                     println("Result: " + result)
-                    albumInfo = Klaxon().parse<AlbumList>(result)
+                    //albumInfo?.items = result.getJSONObject("albums").getJSONArray("items")
+                    //println("Items: " + albumInfo?.items)
+                    //albumInfo = Klaxon().parse<AlbumList>(result)
+                    //albumInfo = Klaxon().parseArray<AlbumList>(result.getJSONObject("albums").getJSONArray("items"))
+                    //albumInfo = Klaxon().parseFromJsonObject<AlbumList>(Klaxon().parseJsonObject(StringReader(result)))
+                    var testInfo = result.getJSONObject("albums").getJSONArray("items")
+                    println ("TestInfo :" + testInfo)
+                    for (i in 0 until testInfo.length()) {
+                        val album = testInfo.getJSONObject(i)
+                        println ("Album: " + album)
+
+                    }
 
                     withContext(Dispatchers.Main) {
                         //viewModel.albumName.value = albumInfo?.name
-                        println(albumInfo)
+                        println("AlbumInfo: " + albumInfo?.items)
                     }
                 } catch (error: Error) {
-                    print ("Error: JSON parse issue: " + error.localizedMessage)
+                    println ("Error: JSON parse issue: " + error.localizedMessage)
                 }
             } else {
-                print ("Error: Request returned no response.")
+                println ("Error: Request returned no response.")
             }
         }
         return albumInfo
