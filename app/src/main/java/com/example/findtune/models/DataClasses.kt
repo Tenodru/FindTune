@@ -54,11 +54,9 @@ data class Album(
     val artist: String = ""
 ) : Serializable
 
-data class AlbumList(
-    @Json(name = "albums")
-    var items: String
-) : Serializable
-
+/**
+ * A data class to represent album information from Spotify's API.
+ */
 data class SpotifyAlbumInfo (
     @Json(name = "album_type")
     val albumType: String,
@@ -71,9 +69,12 @@ data class SpotifyAlbumInfo (
     val name: String,
     @Json(name = "release_date")
     val releaseDate: String,
-)
+) : Serializable
 
+/**
+ * A data class to represent artist information from Spotify's API.
+ */
 data class SpotifyArtistInfo (
     val name: String,
     val id: String
-)
+) : Serializable

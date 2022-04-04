@@ -21,7 +21,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.beust.klaxon.Klaxon
-import com.example.findtune.models.AlbumList
 import com.example.findtune.models.SpotifyAlbumInfo
 import com.example.findtune.models.SpotifyArtistInfo
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -101,10 +100,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Grabs info from requested API and parses to Album JSON class.
+     * Grabs info from requested API and parses to a list of SpotifyAlbumInfo objects.
+     * Runs within a coroutine.
      */
-    private fun getInfo(urlString: String): AlbumList? {
-        var albumInfo: AlbumList? = null
+    private fun getInfo(urlString: String) {
         lifecycleScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
             val result = getRequest(urlString)
             val albumList = mutableListOf<SpotifyAlbumInfo>()
@@ -113,13 +112,13 @@ class MainActivity : AppCompatActivity() {
                 // Parse result string to JSON.
                 try {
                     println("Result: " + result)
-                    //albumInfo?.items = result.getJSONObject("albums").getJSONArray("items")
-                    //println("Items: " + albumInfo?.items)
-                    //albumInfo = Klaxon().parse<AlbumList>(result)
-                    //albumInfo = Klaxon().parseArray<AlbumList>(result.getJSONObject("albums").getJSONArray("items"))
-                    //albumInfo = Klaxon().parseFromJsonObject<AlbumList>(Klaxon().parseJsonObject(StringReader(result)))
+
+                    // First, grab the "items" component of the JSON result and parse to a JSONArray.
                     var testInfo = result.getJSONObject("albums").getJSONArray("items")
                     println ("TestInfo :" + testInfo)
+
+                    // Parse through JSONArray and translate to a SpotifyAlbumInfo data object.
+                    // Then add the object to the albumList.
                     for (al in 0 until testInfo.length()) {
                         val album = testInfo.getJSONObject(al)
                         println ("Album: " + album)
@@ -130,6 +129,7 @@ class MainActivity : AppCompatActivity() {
                             spotifyArtists.add(Klaxon().parse<SpotifyArtistInfo>(artistsArr.getJSONObject(ar).toString())!!)
                         }
                         spotifyAlbum.artists = spotifyArtists
+
                         // Grabs 300x300px image URL.
                         val imagesArr = album.getJSONArray("images")
                         spotifyAlbum.image = imagesArr.getJSONObject(1).getString("url")
@@ -139,7 +139,7 @@ class MainActivity : AppCompatActivity() {
 
                     withContext(Dispatchers.Main) {
                         //viewModel.albumName.value = albumInfo?.name
-                        println("AlbumInfo: " + albumInfo?.items)
+                        //println("AlbumInfo: " + albumInfo?.items)
                     }
                 } catch (error: Error) {
                     println ("Error: JSON parse issue: " + error.localizedMessage)
@@ -148,7 +148,6 @@ class MainActivity : AppCompatActivity() {
                 println ("Error: Request returned no response.")
             }
         }
-        return albumInfo
     }
 
     val coroutineExceptionHandler = CoroutineExceptionHandler{_, throwable ->
@@ -180,6 +179,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Makes an authentication request.
+     */
     private fun getAuthenticationRequest(type: AuthenticationResponse.Type): AuthenticationRequest {
         return AuthenticationRequest.Builder(CLIENT_ID, type, REDIRECT_URI)
             .setShowDialog(false)
@@ -193,6 +195,11 @@ class MainActivity : AppCompatActivity() {
             accessToken = response.accessToken
             getInfo("https://api.spotify.com/v1/browse/new-releases")
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
     }
 
     /**
