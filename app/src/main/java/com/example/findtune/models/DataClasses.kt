@@ -50,3 +50,7 @@ data class Album(
     val name: String,
     val artist: String = ""
 ) : Serializable
+
+data class AlbumList(
+    val items: String
+) : Serializable
