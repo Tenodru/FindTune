@@ -10,5 +10,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "FindTune"
-include ':app', ':SpotifyAppRemote'
-project (':SpotifyAppRemote').projectDir = new File('libs/android-sdk-0.7.2-appremote_v1.2.3-auth')
+include ':app'

@@ -9,6 +9,10 @@
 package com.example.findtune
 
 // Spotify
+import com.spotify.sdk.android.authentication.AuthenticationClient
+import com.spotify.sdk.android.authentication.AuthenticationRequest
+import com.spotify.sdk.android.authentication.AuthenticationResponse
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -18,12 +22,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.beust.klaxon.Klaxon
 import com.example.findtune.models.AlbumList
-import com.spotify.android.appremote.api.ConnectionParams
-import com.spotify.android.appremote.api.Connector.ConnectionListener
-import com.spotify.android.appremote.api.SpotifyAppRemote
-import com.spotify.sdk.android.authentication.AuthenticationClient
-import com.spotify.sdk.android.authentication.AuthenticationRequest
-import com.spotify.sdk.android.authentication.AuthenticationResponse
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -41,7 +39,6 @@ class MainActivity : AppCompatActivity() {
     val CLIENT_ID = "ce611d227701449c8d64d78688d1cf96"
     val REDIRECT_URI = "http://localhost:8888/callback"
     val AUTH_TOKEN_REQUEST_CODE = 0x10
-    var spotifyAppRemote: SpotifyAppRemote? = null
     var accessToken = ""
 
     /**
@@ -151,13 +148,5 @@ class MainActivity : AppCompatActivity() {
 
     private fun connected() {
         // Run when connected to Spotify.
-    }
-
-    override fun onStop() {
-        super.onStop()
-        spotifyAppRemote?.let {
-            SpotifyAppRemote.disconnect(it)
-        }
-
     }
 }
