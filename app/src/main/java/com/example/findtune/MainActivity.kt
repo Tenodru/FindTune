@@ -105,7 +105,7 @@ class MainActivity : AppCompatActivity() {
         var albumInfo: AlbumList? = null
         lifecycleScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
             val result = getRequest(urlString)
-            val albumList = listOf<SpotifyAlbumInfo>()
+            val albumList = mutableListOf<SpotifyAlbumInfo>()
 
             if (result != null) {
                 // Parse result string to JSON.
@@ -121,8 +121,12 @@ class MainActivity : AppCompatActivity() {
                     for (i in 0 until testInfo.length()) {
                         val album = testInfo.getJSONObject(i)
                         println ("Album: " + album)
-
+                        val spotifyAlbum = Klaxon().parse<SpotifyAlbumInfo>(album.toString())!!
+                        spotifyAlbum.artists = album.getJSONArray("artists")
+                        spotifyAlbum.images = album.getJSONArray("images")
+                        albumList.add(spotifyAlbum)
                     }
+                    println("AlbumList: " + albumList)
 
                     withContext(Dispatchers.Main) {
                         //viewModel.albumName.value = albumInfo?.name

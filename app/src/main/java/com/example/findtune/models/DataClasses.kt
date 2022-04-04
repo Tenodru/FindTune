@@ -11,6 +11,7 @@ package com.example.findtune.models;
 import androidx.annotation.DrawableRes
 import com.beust.klaxon.Json
 import org.json.JSONArray
+import org.json.JSONObject
 import java.io.Serializable
 
 /**
@@ -61,8 +62,12 @@ data class AlbumList(
 data class SpotifyAlbumInfo (
     @Json(name = "album_type")
     val albumType: String,
-    val artists: JSONArray,
-    val images: JSONArray,
+    //val artists: ArrayList<String?>,
+    //val images: ArrayList<String?>,
+    @Json(ignored = true)
+    var artists: JSONArray = JSONArray(),
+    @Json(ignored = true)
+    var images: JSONArray = JSONArray(),
     val name: String,
     @Json(name = "release_date")
     val releaseDate: String,
