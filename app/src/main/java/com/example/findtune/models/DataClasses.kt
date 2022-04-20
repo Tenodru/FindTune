@@ -68,6 +68,8 @@ data class SpotifyAlbumInfo (
     var artists: MutableList<SpotifyArtistInfo> = mutableListOf(),
     @Json(ignored = true)
     var image: String = "",
+    @Json(ignored = true)
+    var url: String = "",
     val name: String,
     @Json(name = "release_date")
     val releaseDate: String

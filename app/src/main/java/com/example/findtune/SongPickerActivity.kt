@@ -67,7 +67,15 @@ class SongPickerActivity : AppCompatActivity() {
                     albumImage.setImageBitmap(image)
                 }
             }
-
+            var artistNameText : String = ""
+            for (artist in chosenAlbum.artists) {
+                if (artist == chosenAlbum.artists.last()) {
+                    artistNameText += artist.name
+                } else {
+                    artistNameText += artist.name + ", "
+                }
+            }
+            artistName.text = artistNameText
         }
     }
 

@@ -140,6 +140,10 @@ class MainActivity : AppCompatActivity() {
                         }
                         spotifyAlbum.artists = spotifyArtists
 
+                        // Grabs album's Spotify URL.
+                        val urlObject = album.getJSONObject("external_urls")
+                        spotifyAlbum.url = urlObject.getString("spotify")
+
                         // Grabs 300x300px image URL.
                         val imagesArr = album.getJSONArray("images")
                         spotifyAlbum.image = imagesArr.getJSONObject(1).getString("url")
