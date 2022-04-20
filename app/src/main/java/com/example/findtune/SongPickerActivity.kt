@@ -2,6 +2,7 @@ package com.example.findtune
 
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -57,14 +58,19 @@ class SongPickerActivity : AppCompatActivity() {
         chosenAlbum = newReleasesList.random()
     }
 
+    /**
+     * Updates interface elements with info from chosenAlbum.
+     */
     private fun updateDisplay() {
         if (chosenAlbum != null) {
             albumName.text = chosenAlbum.name
+            albumName.setOnClickListener{ openAlbumLink() }
             lifecycleScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
                 val urlStream = java.net.URL(chosenAlbum.image).openStream()
                 val image = BitmapFactory.decodeStream(urlStream)
                 withContext(Dispatchers.Main) {
                     albumImage.setImageBitmap(image)
+                    albumImage.setOnClickListener{ openAlbumLink() }
                 }
             }
             var artistNameText : String = ""
@@ -81,5 +87,13 @@ class SongPickerActivity : AppCompatActivity() {
 
     val coroutineExceptionHandler = CoroutineExceptionHandler{_, throwable ->
         throwable.printStackTrace()
+    }
+
+    private fun openAlbumLink() {
+        if (chosenAlbum != null) {
+            val openURL = Intent(android.content.Intent.ACTION_VIEW)
+            openURL.data = Uri.parse(chosenAlbum.url)
+            startActivity(openURL)
+        }
     }
 }

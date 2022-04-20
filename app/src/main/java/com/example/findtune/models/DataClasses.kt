@@ -82,3 +82,13 @@ data class SpotifyArtistInfo (
     val name: String,
     val id: String
 ) : Serializable
+
+/**
+ * A data class to represent album information from the developers' choices.
+ */
+data class EditorsChoiceAlbum (
+    val name: String,
+    val artists: List<String>,
+    @DrawableRes val image: Int,
+    val url: String
+) : Serializable

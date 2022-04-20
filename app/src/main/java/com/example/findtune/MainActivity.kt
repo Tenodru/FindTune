@@ -270,4 +270,8 @@ class MainActivity : AppCompatActivity() {
         val genreIntent = Intent (this, GenreScreenActivity::class.java)
         startActivity(genreIntent)
     }
+
+    private fun enterEditorsChoiceScreen() {
+
+    }
 }
