@@ -94,6 +94,36 @@ object EditorsChoiceList {
             listOf("Stray Kids"),
             R.drawable.inlife_straykids,
             "https://open.spotify.com/track/0XuepwFJUcKN8T5zTqoP0F?si=8318ac5356d949ca"
+        ),
+        EditorsChoiceAlbum(
+            "Heart-Shaped Box",
+            listOf("Nirvana"),
+            R.drawable.heartshapedbox_ac,
+            "https://open.spotify.com/track/11LmqTE2naFULdEP94AUBa?si=c42ab67df74643af"
+        ),
+        EditorsChoiceAlbum(
+            "Institutionalized",
+            listOf("Kendrick Lamar", "Bilal", "Anna Wise", "Snoop Dogg"),
+            R.drawable.institutionalized_ac,
+            "https://open.spotify.com/track/4oFtLSgHyZPNYDCcANhTnO?si=c376b8b999494973"
+        ),
+        EditorsChoiceAlbum(
+            "Conrad Tokyo",
+            listOf("A Tribe Called Quest", "Kendrick Lamar"),
+            R.drawable.conradtokyo_ac,
+            "https://open.spotify.com/track/3MDcFMG1AYBPcRpYOdwDYl?si=c1053bd0fba141c7"
+        ),
+        EditorsChoiceAlbum(
+            "ATLiens",
+            listOf("Outkast"),
+            R.drawable.atliens_ac,
+            "https://open.spotify.com/track/2vfvGlqCB7oertO5VLE0sz?si=c5fef664fb0740c0"
+        ),
+        EditorsChoiceAlbum(
+            "Everlong",
+            listOf("Foo Fighters"),
+            R.drawable.everlong_ac,
+            "https://open.spotify.com/track/5UWwZ5lm5PKu6eKsHAGxOk?si=9b7267adba7342c8"
         )
     )
 }
