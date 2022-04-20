@@ -27,6 +27,8 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="2.3793280290396375" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.275" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
+        <entry key="app/src/main/res/layout/artist_list_item.xml" value="0.15081521739130435" />
+        <entry key="app/src/main/res/layout/editors_choice.xml" value="0.15081521739130435" />
         <entry key="app/src/main/res/layout/song_picker.xml" value="0.15081521739130435" />
         <entry key="app/src/main/res/layout/welcome_screen.xml" value="0.1503623188405797" />
       </map>

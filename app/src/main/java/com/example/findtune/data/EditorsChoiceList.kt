@@ -36,7 +36,7 @@ object EditorsChoiceList {
             "https://open.spotify.com/track/3tDkjbYyRS18QAVgh1ZUQs?si=7bca3b79291848fc"
         ),
         EditorsChoiceSong(
-            "Save Your Tears (with Ariana Grande)",
+            "Save Your Tears (Remix)",
             listOf("The Weeknd", "Ariana Grande"),
             R.drawable.saveyourtears,
             "https://open.spotify.com/track/37BZB0z9T8Xu7U3e65qxFy?si=cb287df8cc98400f"
@@ -44,7 +44,7 @@ object EditorsChoiceList {
         EditorsChoiceSong(
             "West Coast",
             listOf("OneRepublic"),
-            R.drawable.wildhorses,
+            R.drawable.west_coast_onerepublic,
             "https://open.spotify.com/track/0sBJA2OCEECMs0HsdIQhvR?si=34925ed998a44b88"
         ),
         EditorsChoiceSong(
@@ -54,7 +54,7 @@ object EditorsChoiceList {
             "https://open.spotify.com/track/65mPCrY32YMQlBnmWVrKNa?si=a5323b6c1b6b4be7"
         ),
         EditorsChoiceSong(
-            "Scenic Drive (feat. Ari Lennox & Smino",
+            "Scenic Drive (feat. Ari Lennox & Smino)",
             listOf("Khalid", "Ari Lennox", "Smino"),
             R.drawable.scenic_drive_khalid,
             "https://open.spotify.com/track/6zIen2DYr2t19vbwqgORY2?si=331cc3e61cd24703"
