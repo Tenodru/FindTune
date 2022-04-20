@@ -27,6 +27,7 @@ class SongPickerActivity : AppCompatActivity() {
     var chosenList = mutableListOf<SpotifyAlbumInfo>()
     var chooseLimit = 10
 
+    lateinit var header : TextView
     lateinit var albumName : TextView
     lateinit var albumImage : ImageView
     lateinit var artistName : TextView
@@ -39,10 +40,14 @@ class SongPickerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.song_picker)
+
+        header = findViewById(R.id.header)
         albumName = findViewById(R.id.albumName)
         albumImage = findViewById(R.id.albumImage)
         artistName = findViewById(R.id.artistName)
         rerollButton = findViewById(R.id.rerollButton)
+
+        header.text = "New Releases"
         newReleasesList = intent.getSerializableExtra("New Releases") as MutableList<SpotifyAlbumInfo>
         chosenAlbum = newReleasesList.random()
 

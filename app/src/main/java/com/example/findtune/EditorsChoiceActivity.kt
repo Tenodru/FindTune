@@ -25,6 +25,7 @@ class EditorsChoiceActivity : AppCompatActivity() {
     var chosenList = mutableListOf<EditorsChoiceSong>()
     var chooseLimit = 5
 
+    lateinit var header : TextView
     lateinit var albumName : TextView
     lateinit var albumImage : ImageView
     lateinit var artistName : TextView
@@ -37,10 +38,14 @@ class EditorsChoiceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.song_picker)
+
+        header = findViewById(R.id.header)
         albumName = findViewById(R.id.albumName)
         albumImage = findViewById(R.id.albumImage)
         artistName = findViewById(R.id.artistName)
         rerollButton = findViewById(R.id.rerollButton)
+
+        header.text = "Editors' Choice"
         chosenSong = editorsChoiceList.random()
 
         chooseAlbum()
