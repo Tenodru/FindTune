@@ -13,9 +13,13 @@ import com.spotify.sdk.android.authentication.AuthenticationClient
 import com.spotify.sdk.android.authentication.AuthenticationRequest
 import com.spotify.sdk.android.authentication.AuthenticationResponse
 
+// Android
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import android.widget.Button
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -29,9 +33,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import org.json.JSONArray
 import org.json.JSONObject
-import java.io.StringReader
+import java.io.Serializable
 import java.net.URL
 
 
@@ -44,6 +47,14 @@ class MainActivity : AppCompatActivity() {
     val REDIRECT_URI = "http://localhost:8888/callback"
     val AUTH_TOKEN_REQUEST_CODE = 0x10
     var accessToken = ""
+
+    lateinit var discoverButton: Button
+    lateinit var newReleasesButton: Button
+    lateinit var editorsChoiceButton: Button
+    var discoverOptionsShown: Boolean = false
+
+    var albumList = mutableListOf<SpotifyAlbumInfo>()
+    lateinit var songPickerIntent : Intent
 
     /**
      * Grabs request from specified API. Returns the result (should be a JSONObject).
@@ -106,7 +117,6 @@ class MainActivity : AppCompatActivity() {
     private fun getInfo(urlString: String) {
         lifecycleScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
             val result = getRequest(urlString)
-            val albumList = mutableListOf<SpotifyAlbumInfo>()
 
             if (result != null) {
                 // Parse result string to JSON.
@@ -138,8 +148,8 @@ class MainActivity : AppCompatActivity() {
                     println("AlbumList: " + albumList)
 
                     withContext(Dispatchers.Main) {
-                        //viewModel.albumName.value = albumInfo?.name
-                        //println("AlbumInfo: " + albumInfo?.items)
+                        songPickerIntent.putExtra("New Releases", albumList as Serializable)
+                        startActivity(songPickerIntent)
                     }
                 } catch (error: Error) {
                     println ("Error: JSON parse issue: " + error.localizedMessage)
@@ -161,15 +171,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.welcome_screen)
+        songPickerIntent = Intent (this, SongPickerActivity::class.java)
+
+        newReleasesButton = findViewById(R.id.newReleasesButton)
+        editorsChoiceButton = findViewById(R.id.editorsChoiceButton)
 
         // Welcome message stuff. When enter button is clicked, go to genre display screen.
         val enterButton: Button = findViewById(R.id.enterButton)
         enterButton.setOnClickListener { enterGenreScreen() }
 
-        // New code
-        val fetchButton: Button = findViewById(R.id.fetchButton)
-        //fetchButton.setOnClickListener { getInfo("https://api.spotify.com/v1/browse/new-releases") }
-        fetchButton.setOnClickListener {
+        // Tapping Discover button reveals New Releases and Editors' Choice buttons.
+        discoverButton = findViewById(R.id.discoverButton)
+        discoverButton.setOnClickListener { toggleDiscoverOptions() }
+
+        newReleasesButton.setOnClickListener { getInfo("https://api.spotify.com/v1/browse/new-releases") }
+        newReleasesButton.setOnClickListener {
             val request = getAuthenticationRequest(AuthenticationResponse.Type.TOKEN)
             AuthenticationClient.openLoginActivity(
                 this,
@@ -177,6 +193,48 @@ class MainActivity : AppCompatActivity() {
                 request
             )
         }
+    }
+
+    private fun toggleDiscoverOptions() {
+        if (discoverOptionsShown) {
+            val animatorNR = ObjectAnimator.ofFloat(newReleasesButton, View.TRANSLATION_Y, -60f)
+            animatorNR.disableViewDuringAnimation(discoverButton)
+            animatorNR.start()
+            val animatorNRFade = ObjectAnimator.ofFloat(newReleasesButton, View.ALPHA, 0f)
+            animatorNRFade.duration = 62
+            animatorNRFade.start()
+            val animatorEC = ObjectAnimator.ofFloat(editorsChoiceButton, View.TRANSLATION_Y, -140f)
+            animatorEC.disableViewDuringAnimation(discoverButton)
+            animatorEC.start()
+            val animatorECFade = ObjectAnimator.ofFloat(editorsChoiceButton, View.ALPHA, 0f)
+            animatorECFade.duration = 125
+            animatorECFade.start()
+            discoverOptionsShown = false
+        } else {
+            val animatorNR = ObjectAnimator.ofFloat(newReleasesButton, View.TRANSLATION_Y, 190f)
+            animatorNR.disableViewDuringAnimation(discoverButton)
+            animatorNR.start()
+            val animatorNRFade = ObjectAnimator.ofFloat(newReleasesButton, View.ALPHA, 1f)
+            animatorNRFade.start()
+            val animatorEC = ObjectAnimator.ofFloat(editorsChoiceButton, View.TRANSLATION_Y, 360f)
+            animatorEC.disableViewDuringAnimation(discoverButton)
+            animatorEC.start()
+            val animatorECFade = ObjectAnimator.ofFloat(editorsChoiceButton, View.ALPHA, 1f)
+            animatorECFade.start()
+            discoverOptionsShown = true
+        }
+    }
+
+    private fun ObjectAnimator.disableViewDuringAnimation(view: View) {
+        //TODO: disable buttons while animating
+        addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationStart(animation: Animator?) {
+                view.isEnabled = false
+            }
+            override fun onAnimationEnd(animation: Animator?) {
+                view.isEnabled = true
+            }
+        })
     }
 
     /**
@@ -199,14 +257,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
     }
 
     /**
      * App moves to genre display screen.
      */
     private fun enterGenreScreen() {
-        val intent = Intent (this, GenreScreenActivity::class.java)
-        startActivity(intent)
+        val genreIntent = Intent (this, GenreScreenActivity::class.java)
+        startActivity(genreIntent)
     }
 }

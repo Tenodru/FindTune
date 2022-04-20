@@ -8,6 +8,8 @@
 
 package com.example.findtune.models;
 
+import android.os.Parcel
+import android.os.Parcelable
 import androidx.annotation.DrawableRes
 import com.beust.klaxon.Json
 import org.json.JSONArray
@@ -68,7 +70,7 @@ data class SpotifyAlbumInfo (
     var image: String = "",
     val name: String,
     @Json(name = "release_date")
-    val releaseDate: String,
+    val releaseDate: String
 ) : Serializable
 
 /**

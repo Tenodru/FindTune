@@ -28,8 +28,8 @@
 
         <Button
             android:id="@+id/enterButton"
-            android:layout_width="110dp"
-            android:layout_height="78dp"
+            android:layout_width="140dp"
+            android:layout_height="80dp"
             android:text="Explore!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,16 +37,44 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/fetchButton"
+            android:id="@+id/newReleasesButton"
             android:layout_width="110dp"
-            android:layout_height="78dp"
-            android:text="Fetch"
+            android:layout_height="70dp"
+            android:text="New Releases"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.64" />
+            app:layout_constraintVertical_bias="0.64"
+            tools:ignore="DuplicateClickableBoundsCheck" />
+
+        <Button
+            android:id="@+id/editorsChoiceButton"
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:text="Editors' Choice"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.64"
+            tools:ignore="DuplicateClickableBoundsCheck" />
+
+        <Button
+            android:id="@+id/discoverButton"
+            android:layout_width="140dp"
+            android:layout_height="80dp"
+            android:text="Discover"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.64"
+            tools:ignore="DuplicateClickableBoundsCheck" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

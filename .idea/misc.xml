@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Documents/School/CS/Elements of Mobile Computing/FindTune/app/src/main/res/layout/welcome_screen.xml" value="0.19947916666666668" />
+        <entry key="..\:/Documents/School/CS/Elements of Mobile Computing/FindTune/app/src/main/res/layout/song_picker.xml" value="0.33695652173913043" />
+        <entry key="..\:/Documents/School/CS/Elements of Mobile Computing/FindTune/app/src/main/res/layout/welcome_screen.xml" value="0.33" />
         <entry key="..\:/Users/alexk/AndroidStudioProjects/FindTune/FindTune/app/src/main/res/layout/activity_artists_screen.xml" value="0.33" />
         <entry key="..\:/Users/alexk/AndroidStudioProjects/FindTune/FindTune/app/src/main/res/layout/activity_genres_screen.xml" value="0.5" />
         <entry key="..\:/Users/alexk/AndroidStudioProjects/FindTune/FindTune/app/src/main/res/layout/activity_main.xml" value="0.25" />

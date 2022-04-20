@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/albumImage"
         android:layout_width="328dp"
         android:layout_height="328dp"
         android:layout_marginStart="41dp"
@@ -23,7 +23,7 @@
         app:srcCompat="@drawable/album_placeholder" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/albumName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -32,10 +32,10 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/albumImage" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/artistName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -45,20 +45,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/albumName" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/rerollButton"
         android:layout_width="252dp"
         android:layout_height="68dp"
         android:layout_marginTop="40dp"
         android:text="Find Me Another Song!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/artistName" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
@@ -75,7 +75,7 @@
         android:layout_marginEnd="42dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/findtune_logo_12" />
 
