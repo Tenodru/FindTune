@@ -31,8 +31,8 @@ class EditorsChoiceActivity : AppCompatActivity() {
     lateinit var rerollButton : Button
 
     /**
-     * Run after New Releases button is clicked.
-     * Sets the content view to the Song Picker screen.
+     * Run after the Editors' Choice button is clicked.
+     * Sets the content view to the Editor's Choice Picker screen.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +54,9 @@ class EditorsChoiceActivity : AppCompatActivity() {
         updateChosenList()
     }
 
+    /**
+     * Selects a new song from the viable list of songs, then updates the display.
+     */
     private fun chooseAlbum() {
         lifecycleScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
             var newList = mutableListOf<EditorsChoiceSong>()
@@ -92,12 +95,18 @@ class EditorsChoiceActivity : AppCompatActivity() {
         throwable.printStackTrace()
     }
 
+    /**
+     * Maintains the specified length of chosenList.
+     */
     private fun updateChosenList() {
         if (chosenList.count() > chooseLimit) {
             chosenList.remove(chosenList.first())
         }
     }
 
+    /**
+     * Opens the link to the song or album in a web browser.
+     */
     private fun openAlbumLink() {
         if (chosenSong != null) {
             val openURL = Intent(android.content.Intent.ACTION_VIEW)

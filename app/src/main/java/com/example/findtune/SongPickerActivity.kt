@@ -33,7 +33,7 @@ class SongPickerActivity : AppCompatActivity() {
     lateinit var rerollButton : Button
 
     /**
-     * Run after New Releases button is clicked.
+     * Run after the New Releases button is clicked.
      * Sets the content view to the Song Picker screen.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +57,9 @@ class SongPickerActivity : AppCompatActivity() {
         updateChosenList()
     }
 
+    /**
+     * Selects a new album from the viable list of albums, then updates the display.
+     */
     private fun chooseAlbum() {
         var newList = mutableListOf<SpotifyAlbumInfo>()
         newList.addAll(newReleasesList)
@@ -99,12 +102,18 @@ class SongPickerActivity : AppCompatActivity() {
         throwable.printStackTrace()
     }
 
+    /**
+     * Maintains the specified length of chosenList.
+     */
     private fun updateChosenList() {
         if (chosenList.count() > chooseLimit) {
             chosenList.remove(chosenList.first())
         }
     }
 
+    /**
+     * Opens the link to the song or album in a web browser.
+     */
     private fun openAlbumLink() {
         if (chosenAlbum != null) {
             val openURL = Intent(android.content.Intent.ACTION_VIEW)
