@@ -22,6 +22,8 @@ class EditorsChoiceActivity : AppCompatActivity() {
 
     var editorsChoiceList : List<EditorsChoiceSong> = EditorsChoiceList.list
     lateinit var chosenSong: EditorsChoiceSong
+    var chosenList = mutableListOf<EditorsChoiceSong>()
+    var chooseLimit = 5
 
     lateinit var albumName : TextView
     lateinit var albumImage : ImageView
@@ -39,6 +41,7 @@ class EditorsChoiceActivity : AppCompatActivity() {
         albumImage = findViewById(R.id.albumImage)
         artistName = findViewById(R.id.artistName)
         rerollButton = findViewById(R.id.rerollButton)
+        chosenSong = editorsChoiceList.random()
 
         chooseAlbum()
         updateDisplay()
@@ -48,11 +51,20 @@ class EditorsChoiceActivity : AppCompatActivity() {
 
     private fun findNewAlbum() {
         chooseAlbum()
-        updateDisplay()
+        updateChosenList()
     }
 
     private fun chooseAlbum() {
-        chosenSong = editorsChoiceList.random()
+        lifecycleScope.launch(Dispatchers.IO + coroutineExceptionHandler) {
+            var newList = mutableListOf<EditorsChoiceSong>()
+            newList.addAll(editorsChoiceList)
+            val viableList = newList.filterNot { chosenList.contains(it) }
+            chosenSong = viableList.random()
+            chosenList.add(chosenSong)
+            withContext(Dispatchers.Main) {
+                updateDisplay()
+            }
+        }
     }
 
     /**
@@ -78,6 +90,12 @@ class EditorsChoiceActivity : AppCompatActivity() {
 
     val coroutineExceptionHandler = CoroutineExceptionHandler{_, throwable ->
         throwable.printStackTrace()
+    }
+
+    private fun updateChosenList() {
+        if (chosenList.count() > chooseLimit) {
+            chosenList.remove(chosenList.first())
+        }
     }
 
     private fun openAlbumLink() {

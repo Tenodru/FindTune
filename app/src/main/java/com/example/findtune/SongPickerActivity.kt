@@ -24,6 +24,8 @@ class SongPickerActivity : AppCompatActivity() {
 
     lateinit var newReleasesList : MutableList<SpotifyAlbumInfo>
     lateinit var chosenAlbum: SpotifyAlbumInfo
+    var chosenList = mutableListOf<SpotifyAlbumInfo>()
+    var chooseLimit = 10
 
     lateinit var albumName : TextView
     lateinit var albumImage : ImageView
@@ -42,6 +44,7 @@ class SongPickerActivity : AppCompatActivity() {
         artistName = findViewById(R.id.artistName)
         rerollButton = findViewById(R.id.rerollButton)
         newReleasesList = intent.getSerializableExtra("New Releases") as MutableList<SpotifyAlbumInfo>
+        chosenAlbum = newReleasesList.random()
 
         chooseAlbum()
         updateDisplay()
@@ -51,11 +54,18 @@ class SongPickerActivity : AppCompatActivity() {
 
     private fun findNewAlbum() {
         chooseAlbum()
-        updateDisplay()
+        updateChosenList()
     }
 
     private fun chooseAlbum() {
-        chosenAlbum = newReleasesList.random()
+        var newList = mutableListOf<SpotifyAlbumInfo>()
+        newList.addAll(newReleasesList)
+        println(newList)
+        val viableList = newList.filterNot { chosenList.contains(it) }
+        println(chosenList)
+        chosenAlbum = viableList.random()
+        chosenList.add(chosenAlbum)
+        updateDisplay()
     }
 
     /**
@@ -87,6 +97,12 @@ class SongPickerActivity : AppCompatActivity() {
 
     val coroutineExceptionHandler = CoroutineExceptionHandler{_, throwable ->
         throwable.printStackTrace()
+    }
+
+    private fun updateChosenList() {
+        if (chosenList.count() > chooseLimit) {
+            chosenList.remove(chosenList.first())
+        }
     }
 
     private fun openAlbumLink() {
