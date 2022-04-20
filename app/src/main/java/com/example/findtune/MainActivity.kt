@@ -197,6 +197,8 @@ class MainActivity : AppCompatActivity() {
                 request
             )
         }
+
+        editorsChoiceButton.setOnClickListener{ enterEditorsChoiceScreen() }
     }
 
     private fun toggleDiscoverOptions() {
@@ -272,6 +274,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun enterEditorsChoiceScreen() {
-
+        val ecIntent = Intent (this, EditorsChoiceActivity::class.java)
+        startActivity(ecIntent)
     }
 }

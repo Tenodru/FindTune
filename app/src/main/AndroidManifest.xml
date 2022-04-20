@@ -27,6 +27,8 @@
         </activity>
         <activity android:name=".SongPickerActivity" android:parentActivityName=".MainActivity">
         </activity>
+        <activity android:name=".EditorsChoiceActivity" android:parentActivityName=".MainActivity">
+        </activity>
     </application>
 
 </manifest>
