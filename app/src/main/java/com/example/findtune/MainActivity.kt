@@ -261,10 +261,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
     /**
      * App moves to genre display screen.
      */
@@ -273,6 +269,9 @@ class MainActivity : AppCompatActivity() {
         startActivity(genreIntent)
     }
 
+    /**
+     * App moves to Editors' Choice picker screen.
+     */
     private fun enterEditorsChoiceScreen() {
         val ecIntent = Intent (this, EditorsChoiceActivity::class.java)
         startActivity(ecIntent)
