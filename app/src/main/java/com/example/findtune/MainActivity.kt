@@ -18,6 +18,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -44,7 +45,8 @@ class MainActivity : AppCompatActivity() {
 
     var client: OkHttpClient = OkHttpClient()
     val CLIENT_ID = "ce611d227701449c8d64d78688d1cf96"
-    val REDIRECT_URI = "http://localhost:8888/callback"
+    var REDIRECT_URI = "findtune://callback"
+    lateinit var REDIRECT_URI_2 : Uri
     val AUTH_TOKEN_REQUEST_CODE = 0x10
     var accessToken = ""
 
@@ -175,6 +177,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.welcome_screen)
+        REDIRECT_URI_2 = Uri.parse(this.intent.toUri(0));
         songPickerIntent = Intent (this, SongPickerActivity::class.java)
 
         newReleasesButton = findViewById(R.id.newReleasesButton)
@@ -186,21 +189,24 @@ class MainActivity : AppCompatActivity() {
 
         // Tapping Discover button reveals New Releases and Editors' Choice buttons.
         discoverButton = findViewById(R.id.discoverButton)
-        discoverButton.setOnClickListener { toggleDiscoverOptions() }
+        discoverButton.setOnClickListener {
+            toggleDiscoverOptions()
+            println(REDIRECT_URI_2)
+        }
 
         newReleasesButton.setOnClickListener { getInfo("https://api.spotify.com/v1/browse/new-releases") }
         newReleasesButton.setOnClickListener {
             val request = getAuthenticationRequest(AuthenticationResponse.Type.TOKEN)
-            AuthenticationClient.openLoginActivity(
-                this,
-                AUTH_TOKEN_REQUEST_CODE,
-                request
-            )
+            AuthenticationClient.openLoginActivity(this, AUTH_TOKEN_REQUEST_CODE, request)
+            //AuthenticationClient.openLoginInBrowser(this, request)
         }
 
         editorsChoiceButton.setOnClickListener{ enterEditorsChoiceScreen() }
     }
 
+    /**
+     * Handles button animations.
+     */
     private fun toggleDiscoverOptions() {
         if (discoverOptionsShown) {
             val animatorNR = ObjectAnimator.ofFloat(newReleasesButton, View.TRANSLATION_Y, -60f)
@@ -231,6 +237,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Disables the specified view while an animation plays.
+     */
     private fun ObjectAnimator.disableViewDuringAnimation(view: View) {
         //TODO: disable buttons while animating
         addListener(object : AnimatorListenerAdapter() {
@@ -248,16 +257,58 @@ class MainActivity : AppCompatActivity() {
      */
     private fun getAuthenticationRequest(type: AuthenticationResponse.Type): AuthenticationRequest {
         return AuthenticationRequest.Builder(CLIENT_ID, type, REDIRECT_URI)
-            .setShowDialog(false)
+            .setShowDialog(true)
             .build()
     }
 
+    /**
+     * Handles the user's Spotify login result.
+     */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
             val response = AuthenticationClient.getResponse(resultCode, data)
-            accessToken = response.accessToken
-            getInfo("https://api.spotify.com/v1/browse/new-releases")
+            if (response.accessToken == null) {
+                setContentView(R.layout.welcome_screen)
+            } else {
+                accessToken = response.accessToken
+                getInfo("https://api.spotify.com/v1/browse/new-releases")
+            }
+        }
+    }
+
+    /**
+     * Used for webView login method.
+     */
+    override fun onNewIntent(intent: Intent)
+    {
+        super.onNewIntent(intent);
+        println("Back to app.")
+
+        var uri : Uri? = intent.data;
+        if (uri != null) {
+            var response : AuthenticationResponse = AuthenticationResponse.fromUri(uri);
+
+            when (response.getType()) {
+                // Response was successful and contains auth token.
+                AuthenticationResponse.Type.TOKEN -> {
+                    // Handle successful response
+                    accessToken = response.accessToken
+                    getInfo("https://api.spotify.com/v1/browse/new-releases")
+                }
+
+                // Auth flow returned an error.
+                AuthenticationResponse.Type.ERROR -> {
+                    // Handle error response
+                    println(response.error)
+                }
+
+                // Most likely auth flow was cancelled.
+                else -> {
+                    // Handle other cases
+
+                }
+            }
         }
     }
 
