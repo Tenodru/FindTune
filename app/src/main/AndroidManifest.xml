@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.findtune">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -42,6 +43,10 @@
         </activity>
         <activity android:name=".EditorsChoiceActivity" android:parentActivityName=".MainActivity">
         </activity>
+        <activity
+            tools:replace="android:theme"
+            android:name="com.spotify.sdk.android.authentication.LoginActivity"
+            android:theme="@style/Theme.AppCompat.Translucent" />
 
         <meta-data
             android:name="preloaded_fonts"

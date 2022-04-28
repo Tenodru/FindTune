@@ -21,6 +21,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebView
 import android.widget.Button
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,7 @@ import androidx.lifecycle.lifecycleScope
 import com.beust.klaxon.Klaxon
 import com.example.findtune.models.SpotifyAlbumInfo
 import com.example.findtune.models.SpotifyArtistInfo
+import com.spotify.sdk.android.authentication.LoginActivity
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -57,6 +59,8 @@ class MainActivity : AppCompatActivity() {
 
     var albumList = mutableListOf<SpotifyAlbumInfo>()
     lateinit var songPickerIntent : Intent
+
+    lateinit var webView : WebView
 
     /**
      * Grabs request from specified API. Returns the result (should be a JSONObject).
@@ -269,7 +273,8 @@ class MainActivity : AppCompatActivity() {
         if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
             val response = AuthenticationClient.getResponse(resultCode, data)
             if (response.accessToken == null) {
-                setContentView(R.layout.welcome_screen)
+                //setContentView(R.layout.welcome_screen)
+                AuthenticationClient.stopLoginActivity(this, AUTH_TOKEN_REQUEST_CODE)
             } else {
                 accessToken = response.accessToken
                 getInfo("https://api.spotify.com/v1/browse/new-releases")
@@ -278,7 +283,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Used for webView login method.
+     * Used for web browser login method.
      */
     override fun onNewIntent(intent: Intent)
     {
