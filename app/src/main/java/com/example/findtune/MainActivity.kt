@@ -23,6 +23,7 @@ import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
 import android.widget.Button
+import android.widget.ProgressBar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -61,6 +62,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var songPickerIntent : Intent
 
     lateinit var webView : WebView
+    lateinit var loadingIcon : ProgressBar
 
     /**
      * Grabs request from specified API. Returns the result (should be a JSONObject).
@@ -181,6 +183,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.welcome_screen)
+        loadingIcon = findViewById(R.id.loadingIcon)
+        loadingIcon.visibility = View.INVISIBLE
         REDIRECT_URI_2 = Uri.parse(this.intent.toUri(0));
         songPickerIntent = Intent (this, SongPickerActivity::class.java)
 
@@ -213,19 +217,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun toggleDiscoverOptions() {
         if (discoverOptionsShown) {
-            val animatorNR = ObjectAnimator.ofFloat(newReleasesButton, View.TRANSLATION_Y, -60f)
-            animatorNR.disableViewDuringAnimation(discoverButton)
-            animatorNR.start()
-            val animatorNRFade = ObjectAnimator.ofFloat(newReleasesButton, View.ALPHA, 0f)
-            animatorNRFade.duration = 62
-            animatorNRFade.start()
-            val animatorEC = ObjectAnimator.ofFloat(editorsChoiceButton, View.TRANSLATION_Y, -140f)
-            animatorEC.disableViewDuringAnimation(discoverButton)
-            animatorEC.start()
-            val animatorECFade = ObjectAnimator.ofFloat(editorsChoiceButton, View.ALPHA, 0f)
-            animatorECFade.duration = 125
-            animatorECFade.start()
-            discoverOptionsShown = false
+            resetButtons()
         } else {
             val animatorNR = ObjectAnimator.ofFloat(newReleasesButton, View.TRANSLATION_Y, 190f)
             animatorNR.disableViewDuringAnimation(discoverButton)
@@ -239,6 +231,22 @@ class MainActivity : AppCompatActivity() {
             animatorECFade.start()
             discoverOptionsShown = true
         }
+    }
+
+    private fun resetButtons() {
+        val animatorNR = ObjectAnimator.ofFloat(newReleasesButton, View.TRANSLATION_Y, -60f)
+        animatorNR.disableViewDuringAnimation(discoverButton)
+        animatorNR.start()
+        val animatorNRFade = ObjectAnimator.ofFloat(newReleasesButton, View.ALPHA, 0f)
+        animatorNRFade.duration = 62
+        animatorNRFade.start()
+        val animatorEC = ObjectAnimator.ofFloat(editorsChoiceButton, View.TRANSLATION_Y, -140f)
+        animatorEC.disableViewDuringAnimation(discoverButton)
+        animatorEC.start()
+        val animatorECFade = ObjectAnimator.ofFloat(editorsChoiceButton, View.ALPHA, 0f)
+        animatorECFade.duration = 125
+        animatorECFade.start()
+        discoverOptionsShown = false
     }
 
     /**
@@ -276,7 +284,9 @@ class MainActivity : AppCompatActivity() {
                 //setContentView(R.layout.welcome_screen)
                 AuthenticationClient.stopLoginActivity(this, AUTH_TOKEN_REQUEST_CODE)
             } else {
+                resetButtons()
                 accessToken = response.accessToken
+                loadingIcon.visibility = View.VISIBLE
                 getInfo("https://api.spotify.com/v1/browse/new-releases")
             }
         }
