@@ -23,6 +23,7 @@ import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var discoverButton: Button
     lateinit var newReleasesButton: Button
     lateinit var editorsChoiceButton: Button
+    lateinit var spotifyIcon : ImageView
     var discoverOptionsShown: Boolean = false
 
     var albumList = mutableListOf<SpotifyAlbumInfo>()
@@ -188,8 +190,12 @@ class MainActivity : AppCompatActivity() {
         REDIRECT_URI_2 = Uri.parse(this.intent.toUri(0));
         songPickerIntent = Intent (this, SongPickerActivity::class.java)
 
+        spotifyIcon = findViewById(R.id.spotifyIcon)
         newReleasesButton = findViewById(R.id.newReleasesButton)
         editorsChoiceButton = findViewById(R.id.editorsChoiceButton)
+        spotifyIcon.visibility = View.INVISIBLE
+        newReleasesButton.visibility = View.INVISIBLE
+        editorsChoiceButton.visibility = View.INVISIBLE
 
         // Welcome message stuff. When enter button is clicked, go to genre display screen.
         val enterButton: Button = findViewById(R.id.enterButton)
@@ -219,11 +225,19 @@ class MainActivity : AppCompatActivity() {
         if (discoverOptionsShown) {
             resetButtons()
         } else {
+            spotifyIcon.visibility = View.VISIBLE
+            newReleasesButton.visibility = View.VISIBLE
+            editorsChoiceButton.visibility = View.VISIBLE
             val animatorNR = ObjectAnimator.ofFloat(newReleasesButton, View.TRANSLATION_Y, 190f)
             animatorNR.disableViewDuringAnimation(discoverButton)
             animatorNR.start()
             val animatorNRFade = ObjectAnimator.ofFloat(newReleasesButton, View.ALPHA, 1f)
             animatorNRFade.start()
+            val animatorSF = ObjectAnimator.ofFloat(spotifyIcon, View.TRANSLATION_Y, 215f)
+            animatorSF.disableViewDuringAnimation(discoverButton)
+            animatorSF.start()
+            val animatorSFFade = ObjectAnimator.ofFloat(spotifyIcon, View.ALPHA, 1f)
+            animatorSFFade.start()
             val animatorEC = ObjectAnimator.ofFloat(editorsChoiceButton, View.TRANSLATION_Y, 360f)
             animatorEC.disableViewDuringAnimation(discoverButton)
             animatorEC.start()
@@ -243,12 +257,21 @@ class MainActivity : AppCompatActivity() {
         val animatorNRFade = ObjectAnimator.ofFloat(newReleasesButton, View.ALPHA, 0f)
         animatorNRFade.duration = 62
         animatorNRFade.start()
+        val animatorSF = ObjectAnimator.ofFloat(spotifyIcon, View.TRANSLATION_Y, -60f)
+        animatorSF.disableViewDuringAnimation(discoverButton)
+        animatorSF.start()
+        val animatorSFFade = ObjectAnimator.ofFloat(spotifyIcon, View.ALPHA, 0f)
+        animatorSFFade.duration = 62
+        animatorSFFade.start()
         val animatorEC = ObjectAnimator.ofFloat(editorsChoiceButton, View.TRANSLATION_Y, -140f)
         animatorEC.disableViewDuringAnimation(discoverButton)
         animatorEC.start()
         val animatorECFade = ObjectAnimator.ofFloat(editorsChoiceButton, View.ALPHA, 0f)
         animatorECFade.duration = 125
         animatorECFade.start()
+        spotifyIcon.visibility = View.INVISIBLE
+        newReleasesButton.visibility = View.INVISIBLE
+        editorsChoiceButton.visibility = View.INVISIBLE
         discoverOptionsShown = false
     }
 

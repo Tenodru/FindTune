@@ -28,21 +28,22 @@
 
         <Button
             android:id="@+id/enterButton"
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="80dp"
+            android:contentDescription="Explore page."
             android:fontFamily="@font/aldrich"
             android:text="Explore!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Explore page."/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/newReleasesButton"
-            android:layout_width="120dp"
+            android:layout_width="130dp"
             android:layout_height="70dp"
             android:layout_marginTop="10dp"
+            android:contentDescription="New Releases. Opens up a Spotify login dialog."
             android:fontFamily="@font/aldrich"
             android:text="New Releases"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -51,14 +52,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/enterButton"
             app:layout_constraintVertical_bias="0.024"
-            tools:ignore="DuplicateClickableBoundsCheck"
-            android:contentDescription="New Releases. Opens up a Spotify login dialog." />
+            tools:ignore="DuplicateClickableBoundsCheck" />
+
+        <ImageView
+            android:id="@+id/spotifyIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/newReleasesButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.623"
+            app:srcCompat="@drawable/spotify_icon" />
 
         <Button
             android:id="@+id/editorsChoiceButton"
-            android:layout_width="120dp"
+            android:layout_width="130dp"
             android:layout_height="70dp"
             android:layout_marginTop="10dp"
+            android:contentDescription="Editor's Choice."
             android:fontFamily="@font/aldrich"
             android:text="Editors' Choice"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -67,14 +81,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/enterButton"
             app:layout_constraintVertical_bias="0.028"
-            tools:ignore="DuplicateClickableBoundsCheck"
-            android:contentDescription="Editor's Choice." />
+            tools:ignore="DuplicateClickableBoundsCheck" />
 
         <Button
             android:id="@+id/discoverButton"
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="80dp"
             android:layout_marginTop="10dp"
+            android:contentDescription="Discover. Shows and hides the New Releases and Editors' Choice buttons."
             android:fontFamily="@font/aldrich"
             android:text="Discover!"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -83,8 +97,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/enterButton"
             app:layout_constraintVertical_bias="0.0"
-            tools:ignore="DuplicateClickableBoundsCheck"
-            android:contentDescription="Discover. Shows and hides the New Releases and Editors' Choice buttons."/>
+            tools:ignore="DuplicateClickableBoundsCheck" />
 
         <ProgressBar
             android:id="@+id/loadingIcon"
