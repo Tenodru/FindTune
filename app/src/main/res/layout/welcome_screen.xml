@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/spBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
@@ -35,7 +35,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Explore page."/>
 
         <Button
             android:id="@+id/newReleasesButton"
@@ -50,7 +51,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/enterButton"
             app:layout_constraintVertical_bias="0.024"
-            tools:ignore="DuplicateClickableBoundsCheck" />
+            tools:ignore="DuplicateClickableBoundsCheck"
+            android:contentDescription="New Releases. Opens up a Spotify login dialog." />
 
         <Button
             android:id="@+id/editorsChoiceButton"
@@ -65,7 +67,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/enterButton"
             app:layout_constraintVertical_bias="0.028"
-            tools:ignore="DuplicateClickableBoundsCheck" />
+            tools:ignore="DuplicateClickableBoundsCheck"
+            android:contentDescription="Editor's Choice." />
 
         <Button
             android:id="@+id/discoverButton"
@@ -80,7 +83,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/enterButton"
             app:layout_constraintVertical_bias="0.0"
-            tools:ignore="DuplicateClickableBoundsCheck" />
+            tools:ignore="DuplicateClickableBoundsCheck"
+            android:contentDescription="Discover. Shows and hides the New Releases and Editors' Choice buttons."/>
 
         <ProgressBar
             android:id="@+id/loadingIcon"

@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".SongPickerActivity">
 
+    <ImageView
+        android:id="@+id/spBackground2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/song_picker_background" />
+
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -106,7 +117,8 @@
                 android:text="Find Me Another Song!"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/albumCard" />
+                app:layout_constraintTop_toBottomOf="@+id/albumCard"
+                android:contentDescription="Get a new song." />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
