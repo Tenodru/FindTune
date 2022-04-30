@@ -76,9 +76,6 @@ class SongPickerActivity : AppCompatActivity() {
             override fun onSwipeLeft() {
                 super.onSwipeLeft()
                 findNewAlbum()
-                Toast.makeText(this@SongPickerActivity, "Swipe Left gesture detected",
-                    Toast.LENGTH_SHORT)
-                    .show()
             }
         })
     }

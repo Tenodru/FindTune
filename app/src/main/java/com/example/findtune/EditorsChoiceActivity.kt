@@ -66,9 +66,6 @@ class EditorsChoiceActivity : AppCompatActivity() {
             override fun onSwipeLeft() {
                 super.onSwipeLeft()
                 findNewAlbum()
-                Toast.makeText(this@EditorsChoiceActivity, "Swipe Left gesture detected",
-                    Toast.LENGTH_SHORT)
-                    .show()
             }
         })
     }
