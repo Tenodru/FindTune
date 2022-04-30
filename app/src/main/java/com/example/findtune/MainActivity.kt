@@ -233,6 +233,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Resets the appropriate button animations and positions.
+     */
     private fun resetButtons() {
         val animatorNR = ObjectAnimator.ofFloat(newReleasesButton, View.TRANSLATION_Y, -60f)
         animatorNR.disableViewDuringAnimation(discoverButton)

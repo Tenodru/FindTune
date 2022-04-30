@@ -4,14 +4,15 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.GestureDetectorCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.example.findtune.data.EditorsChoiceList
 import com.example.findtune.models.*
+import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,6 +31,11 @@ class EditorsChoiceActivity : AppCompatActivity() {
     lateinit var albumImage : ImageView
     lateinit var artistName : TextView
     lateinit var rerollButton : Button
+    lateinit var albumCard : MaterialCardView
+
+    lateinit var screenLayout : ScrollView
+    lateinit var albumLayout: ConstraintLayout
+    lateinit var gestureDetector: GestureDetectorCompat
 
     /**
      * Run after the Editors' Choice button is clicked.
@@ -44,6 +50,9 @@ class EditorsChoiceActivity : AppCompatActivity() {
         albumImage = findViewById(R.id.albumImage)
         artistName = findViewById(R.id.artistName)
         rerollButton = findViewById(R.id.rerollButton)
+        albumCard = findViewById(R.id.albumCard)
+        screenLayout = findViewById(R.id.scrollView)
+        albumLayout = findViewById(R.id.albumLayout)
 
         header.text = "Editors' Choice"
         chosenSong = editorsChoiceList.random()
@@ -52,6 +61,16 @@ class EditorsChoiceActivity : AppCompatActivity() {
         updateDisplay()
 
         rerollButton.setOnClickListener{ findNewAlbum() }
+
+        screenLayout.setOnTouchListener(object : OnSwipeTouchListener(this@EditorsChoiceActivity) {
+            override fun onSwipeLeft() {
+                super.onSwipeLeft()
+                findNewAlbum()
+                Toast.makeText(this@EditorsChoiceActivity, "Swipe Left gesture detected",
+                    Toast.LENGTH_SHORT)
+                    .show()
+            }
+        })
     }
 
     private fun findNewAlbum() {
