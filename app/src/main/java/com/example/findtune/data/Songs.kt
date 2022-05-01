@@ -13,135 +13,142 @@ object Songs {
 
     val pop_newReleases: List<Song> = listOf(
         Song(
-            R.drawable.edsheeran,
-            "The Joker And The Queen (feat. Taylor Swift)",
-            "Ed Sheeran",
+            R.drawable.honest,
+            "Honest",
+            "Justin Bieber",
             "Single",
-            "https://www.youtube.com/watch?v=2qzcHLyv3N0&ab_channel=EdSheeran"
+            "https://www.youtube.com/watch?v=n1khwOk5dN8&ab_channel=JustinBieberVEVO"
         ),
         Song (
-            R.drawable.mxmtoon,
-            "mona lisa",
-            "mxmtoon",
+            R.drawable.maybeyou,
+            "Maybe You're The Problem",
+            "Ava Max",
             "Single",
-            "https://www.youtube.com/watch?v=m8mJIiMdtks&ab_channel=mxmtoon"
+            "https://www.youtube.com/watch?v=ijS_orLb6VU&ab_channel=AvaMax"
         ),
         Song(
-            R.drawable.kimpetras,
-            "Sl*t Pop",
-            "Kim Petras",
-            "Sl*t Pop",
-            "https://www.youtube.com/watch?v=gDuCIDJtpjo&ab_channel=KimPetrasVEVO"
+            R.drawable.elrenacimiento,
+            "No Me Llames",
+            "Carla Morrison",
+            "El Renacimiento",
+            "https://www.youtube.com/watch?v=U43L94Ij9QI&ab_channel=CarlaMorrison"
         ),
         Song (
-            R.drawable.vancejoy,
-            "Missing Piece",
-            "Vance Joy",
-            "Don't Fade",
-            "https://www.youtube.com/watch?v=atka_0TUTLM&ab_channel=VanceJoy"
+            R.drawable.lovememore,
+            "Love Me More",
+            "Sam Smith",
+            "Single",
+            "https://www.youtube.com/watch?v=H1hDzq98WIY&ab_channel=SamSmithVEVO"
         )
     )
 
     val hiphop_newReleases: List<Song> = listOf(
         Song(
-            R.drawable.worstday,
-            "Worst Day",
+            R.drawable.ineverlikedyou,
+            "Wait for U (feat. Drake & Tems)",
             "Future",
-            "Worst Day",
-            "https://www.youtube.com/watch?v=QmmLwWq3oy4&ab_channel=FutureVEVO"
+            "I Never Liked You",
+            "https://www.youtube.com/watch?v=Y2QpQP8wPG8&ab_channel=FutureVEVO"
         ),
         Song (
-            R.drawable.bussin,
-            "Bussin (feat. Lil Baby)",
-            "Nicki Minaj",
-            "Bussin",
-            "https://www.youtube.com/watch?v=jU7eq75Sejs&ab_channel=NickiMinaj"
+            R.drawable.goinup,
+            "Goin Up",
+            "Lil Tjay",
+            "Single",
+            "https://www.youtube.com/watch?v=MlSWVQouSvk&ab_channel=LilTjay"
         ),
         Song(
-            R.drawable.khabib,
-            "Obsessed With You",
-            "Central Cee",
-            "Khabib",
-            "https://www.youtube.com/watch?v=oP7KHC129RQ&ab_channel=CentralCee"
+            R.drawable.nohandoutz,
+            "No Handoutz (Feat. Yeat)",
+            "Internet Money",
+            "Single",
+            "https://www.youtube.com/watch?v=-0sE6-3RTwo&ab_channel=InternetMoney"
         ),
         Song (
-            R.drawable.dietcoke,
-            "Diet Coke",
-            "Pusha T",
-            "Diet Coke",
-            "https://www.youtube.com/watch?v=HFrwm6oRYJg&ab_channel=PushaTVEVO"
+            R.drawable.krazykrazy,
+            "Krazy Krazy",
+            "Nardo Wick",
+            "Single",
+            "https://www.youtube.com/watch?v=vJXtutXs77w&ab_channel=NardoWick"
         )
     )
 
     val country_newReleases: List<Song> = listOf(
         Song(
-            R.drawable.dustinlynchthinkingboutyou,
-            "Thinking ‘Bout You (feat. MacKenzie Porter)",
-            "Dustin Lynch",
-            "Blue In The Sky",
-            "https://www.youtube.com/watch?v=nqCQfwhYfXE&ab_channel=DustinLynchVEVO"
+            R.drawable.palomino,
+            "If I Was a Cowboy",
+            "Miranda Lambert",
+            "Palomino",
+            "https://www.youtube.com/watch?v=EJEz_z7cE_0&ab_channel=mirandalambertVEVO"
         ),
         Song (
-            R.drawable.orvillepeck,
-            "C’mon Baby, Cry",
-            "Orville Peck",
-            "Bronco: Chapter 1",
-            "https://www.youtube.com/watch?v=DY_jTTOkGUo&ab_channel=OrvillePeckVEVO"
+            R.drawable.allin,
+            "Bye Mom",
+            "Chris Janson",
+            "All In",
+            "https://www.youtube.com/watch?v=qsIeC_bYNCY&ab_channel=ChrisJanson"
         ),
         Song(
-            R.drawable.priscillablock,
-            "Just About Over You",
-            "Priscilla Block",
-            "Welcome To The Block Party",
-            "https://www.youtube.com/watch?v=J1Jrp0tiRGk&ab_channel=PriscillaBlockVEVO"
+            R.drawable.abeautifultime,
+            "I'll Love You Till The Day I Die",
+            "Willie Nelson",
+            "A Beautiful Time",
+            "https://www.youtube.com/watch?v=34-1mSF91Kc&ab_channel=WillieNelsonVEVO"
         ),
         Song (
-            R.drawable.marenmorris,
-            "Background Music",
-            "Maren Morris",
+            R.drawable.samebeer,
+            "Same Beer Different Problem",
+            "Darius Rucker",
             "Single",
-            "https://www.youtube.com/watch?v=Jk5kiAURAeU&ab_channel=MarenMorrisVEVO"
+            "https://www.youtube.com/watch?v=wyxyV5OZ_K0&ab_channel=DariusRuckerVEVO"
         )
     )
 
     val rnb_newReleases: List<Song> = listOf(
         Song(
-            R.drawable.invincible,
-            "Invincible (feat. Daniel Caesar)",
-            "Omar Apollo",
-            "Invincible",
-            "https://www.youtube.com/watch?v=BAKvb8qD4Cw&ab_channel=OmarApollo"
+            R.drawable.honest   ,
+            "Honest",
+            "Justin Bieber",
+            "Single",
+            "https://www.youtube.com/watch?v=n1khwOk5dN8&ab_channel=JustinBieberVEVO"
         ),
         Song (
-            R.drawable.amazing,
-            "Amazing (feat. DJ Khaled)",
-            "Mary J. Blige",
-            "Good Morning Gorgeous",
-            "https://www.youtube.com/watch?v=CRZig-WX_U8&ab_channel=MaryJBlige"
+            R.drawable.lieagain,
+            "Lie Again",
+            "Giveon",
+            "Single",
+            "https://www.youtube.com/watch?v=CA1VHbdq5hY&ab_channel=GiveonVEVO"
         ),
         Song(
-            R.drawable.wildhorses,
-            "wild horses",
-            "Fana Hues",
-            "wild horses",
-            "https://www.youtube.com/watch?v=aovDkZbnuuE&ab_channel=FanaHues"
+            R.drawable.watchthesun,
+            "Be Like Water (Feat. Stevie Wonder, Nas)",
+            "PJ Morton",
+            "Watch The Sun",
+            "https://www.youtube.com/watch?v=q1PC1VKXAs4&ab_channel=PJMorton"
         ),
         Song (
-            R.drawable.heauxtalesmotales,
-            "Pick Up Your Feelings",
-            "Jazmine Sullivan",
-            "Heaux Tales, Mo' Tales",
-            "https://www.youtube.com/watch?v=ZeP--wHHiy8&ab_channel=JazmineSullivanVEVO"
+            R.drawable.girlfriend,
+            "Girlfriend",
+            "Kaash Paige",
+            "Single",
+            "https://www.youtube.com/watch?v=LX5OQV8CLec&ab_channel=KaashPaigeVEVO"
         )
     )
 
     val latin_newReleases: List<Song> = listOf(
         Song(
-            R.drawable.noseolvida,
-            "NO SE OLVIDA",
-            "Wisin & Yandel",
-            "NO SE OLVIDA",
-            "https://www.youtube.com/watch?v=BgnbBkzt7tU&ab_channel=WisinYYandelVEVO"
+            R.drawable.provenza,
+            "Provenza",
+            "Karol G",
+            "Single",
+            "https://www.youtube.com/watch?v=ca48oMV59LU&ab_channel=KarolGVEVO"
+        ),
+        Song (
+            R.drawable.unanocheenmedellin,
+            "Una Noche en Medellin",
+            "Cris Mj",
+            "Single",
+            "https://www.youtube.com/watch?v=EaIh7tRqdqM&ab_channel=CrisMJ"
         ),
         Song (
             R.drawable.mamiii_karolg,
@@ -151,111 +158,104 @@ object Songs {
             "https://www.youtube.com/watch?v=vb8wloc4Xpw&ab_channel=BeckyGVEVO"
         ),
         Song(
-            R.drawable.maldeamores,
-            "Marte",
-            "Sofia Reyes and Maria Becerra",
-            "Mal De Amores",
-            "https://www.youtube.com/watch?v=-BLTXAciRLg&ab_channel=SofiaReyes"
+            R.drawable.dannyocean,
+            "Fuera del mercado",
+            "Danny Ocean",
+            "@dannocean",
+            "https://www.youtube.com/watch?v=49-zy-63biM&ab_channel=DannyOcean"
         ),
-        Song (
-            R.drawable.caprichoso,
-            "Caprichoso",
-            "Rauw Alejandro",
-            "Caprichoso",
-            "https://www.youtube.com/watch?v=8JgxWexxnFI&ab_channel=RauwAlejandro"
-        )
     )
 
     val rock_newReleases: List<Song> = listOf(
         Song(
-            R.drawable.dojacatcelebrityskin,
-            "Celebrity Skin",
-            "Doja Cat",
-            "Celebrity Skin",
-            "https://www.youtube.com/watch?v=G7JEyMDyGZ8&ab_channel=dojacatVEVO"
+            R.drawable.unconditional,
+            "The Lightning II",
+            "Arcade Fire",
+            "Unconditional I (Lookout Kid)",
+            "https://www.youtube.com/watch?v=qJiALpiqpk8&ab_channel=ArcadeFireVEVO"
         ),
         Song (
-            R.drawable.eddievedder,
-            "Long Way",
-            "Eddie Vedder",
-            "Earthling",
-            "https://www.youtube.com/watch?v=NqX_YXNN54o&ab_channel=RadiorockTheOriginal"
+            R.drawable.zeit,
+            "Zeit",
+            "Rammstein",
+            "Zeit",
+            "https://www.youtube.com/watch?v=EbHGS_bVkXY&ab_channel=RammsteinOfficial"
         ),
         Song(
-            R.drawable.jackwhite,
-            "Love Is Selfish",
-            "Jack White",
-            "Love Is Selfish",
-            "https://www.youtube.com/watch?v=Sul6nqGgjiE&ab_channel=JackWhite"
+            R.drawable.alphagames,
+            "Traps",
+            "Bloc Party",
+            "Alpha Games",
+            "https://www.youtube.com/watch?v=0Y86GEcmcnw&ab_channel=BlocParty"
         ),
         Song (
-            R.drawable.spoon,
-            "The Hardest Cut",
-            "Spoon",
-            "Lucifer On The Sofa",
-            "https://www.youtube.com/watch?v=i4vl4T1hEuQ&ab_channel=SpoonVEVO"
+            R.drawable.allcomescrashing,
+            "All Comes Crashing",
+            "Metric",
+            "Single",
+            "https://www.youtube.com/watch?v=_GesZGGvlNc&ab_channel=MetricVEVO"
         )
     )
 
     val jazz_newReleases: List<Song> = listOf(
         Song(
-            R.drawable.charade,
-            "I'm in the Mood for Love",
-            "Jan Lundgren Trio",
-            "Charade",
-            "https://www.youtube.com/watch?v=381S2AVc_1M&ab_channel=JanLundgrenTrio-Topic"
+            R.drawable.comeawaywithme,
+            "Don't Know Why",
+            "Norah Jones",
+            "Come Away With Me (Deluxe Edition)",
+            "https://www.youtube.com/watch?v=2hVuFa2IqwI&ab_channel=norahjonesVEVO"
         ),
         Song (
-            R.drawable.theendisthebeginning,
-            "Bunker",
-            "Pulse Trio",
-            "The End is the Beginning",
-            "https://www.youtube.com/watch?v=ykAnsxq8nxk&ab_channel=PulseTrio-Topic"
+            R.drawable.lifted,
+            "What It Takes",
+            "Trombone Society",
+            "Lifted",
+            "https://www.youtube.com/watch?v=Y1q7YPTIB4I&ab_channel=TromboneShortyVEVO"
         ),
         Song(
-            R.drawable.everynoteistrue,
-            "The Eternal Verities (feat. Jack DeJohnettem, Larry Grenadler)",
-            "Ethan Iverson",
-            "Every Note is True",
-            "https://www.youtube.com/watch?v=wbrjU9_Xh5E&ab_channel=EthanIverson-Topic"
+            R.drawable.theatre,
+            "Bring Down the Curtain",
+            "Joe Stilgoe",
+            "Theatre",
+            "https://www.youtube.com/watch?v=MKcQZLGC-J0&ab_channel=JoeStilgoe-Topic"
         ),
         Song (
-            R.drawable.jazzatnight,
-            "Body & Soul",
-            "Hudson Harris & Haim, Tate Jackson Trio",
-            "Jazz at Night",
-            "https://www.youtube.com/watch?v=hy3nwO8nUxM&ab_channel=HudsonHarris%26Haim-Topic"
+            R.drawable.standart,
+            "De-Dah",
+            "Tigran Hamasyan",
+            "StandArt",
+            "https://www.youtube.com/watch?v=8n-lNCCQqV4&ab_channel=TigranHamasyan"
         )
     )
 
     val kpop_newReleases: List<Song> = listOf(
-        Song(
-            R.drawable.taeyeoninvu,
-            "INVU",
-            "Taeyeon",
-            "INVU",
-            "https://www.youtube.com/watch?v=AbZH7XWDW_k&ab_channel=SMTOWN"
-        ),
         Song (
-            R.drawable.treasurejikjin,
-            "Jikjin",
-            "Treasure",
-            "The Second Step: Chapter One",
-            "https://www.youtube.com/watch?v=ZJaKdBBzUYk&ab_channel=TREASURE%28%ED%8A%B8%EB%A0%88%EC%A0%80%29"
+            R.drawable.psy9,
+            "That That (feat. Suga from BTS)",
+            "PSY",
+            "Psy 9th",
+            "https://www.youtube.com/watch?v=8dJyRm2jJ-U&ab_channel=officialpsy"
         ),
         Song(
-            R.drawable.epikhighishere,
-            "Rain Song (feat. Colde)",
-            "Epik High",
-            "Epik High is Here",
-            "https://www.youtube.com/watch?v=7vDoNXG6lYs&ab_channel=Jxs_Bp%E2%99%AA"
+            R.drawable.citt,
+            "C.I.T.T (Cheese in the Trap)",
+            "Moon Byul",
+            "C.I.T.T (Cheese in the Trap)",
+            "https://www.youtube.com/watch?v=xf3OzncHmfE&ab_channel=MAMAMOO"
+        ),
+        Song(
+            R.drawable.my,
+            "Drive",
+            "Miyeon",
+            "MY",
+            "https://www.youtube.com/watch?v=35lirBqwgTs&ab_channel=%28G%29I-DLE%28%EC%97%AC%EC%9E%90%29%EC%95%84%EC%9D%B4%EB%93%A4%28OfficialYouTubeChannel%29"
         ),
         Song (
-            R.drawable.apinkdilemma,
-            "Dilemma",
-            "Apink",
-            "Horn",
-            "https://www.youtube.com/watch?v=RP4lbSymeZ4&ab_channel=Apink%28%EC%97%90%EC%9D%B4%ED%95%91%ED%81%AC%29"
+            R.drawable.shapeoflove,
+            "Love",
+            "Monsta X",
+            "Shape of Love",
+            "https://www.youtube.com/watch?v=vaKVbKPQOqY&ab_channel=starshipTV"
         )
     )
 }
