@@ -30,7 +30,6 @@ class EditorsChoiceActivity : AppCompatActivity() {
     lateinit var albumName : TextView
     lateinit var albumImage : ImageView
     lateinit var artistName : TextView
-    lateinit var rerollButton : Button
     lateinit var albumCard : MaterialCardView
     lateinit var swipeArrows : ImageView
 
@@ -51,7 +50,6 @@ class EditorsChoiceActivity : AppCompatActivity() {
         albumName = findViewById(R.id.albumName)
         albumImage = findViewById(R.id.albumImage)
         artistName = findViewById(R.id.artistName)
-        rerollButton = findViewById(R.id.rerollButton)
         albumCard = findViewById(R.id.albumCard)
         swipeArrows = findViewById(R.id.swipeArrows)
         screenLayout = findViewById(R.id.scrollView)
@@ -64,8 +62,6 @@ class EditorsChoiceActivity : AppCompatActivity() {
 
         chooseAlbum()
         updateDisplay()
-
-        rerollButton.setOnClickListener{ findNewAlbum() }
 
         screenLayout.setOnTouchListener(object : OnSwipeTouchListener(this@EditorsChoiceActivity) {
             override fun onSwipeLeft() {

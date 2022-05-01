@@ -39,7 +39,6 @@ class SongPickerActivity : AppCompatActivity() {
     lateinit var albumName : TextView
     lateinit var albumImage : ImageView
     lateinit var artistName : TextView
-    lateinit var rerollButton : Button
     lateinit var albumCard : MaterialCardView
     lateinit var swipeArrows : ImageView
 
@@ -62,7 +61,6 @@ class SongPickerActivity : AppCompatActivity() {
         albumName = findViewById(R.id.albumName)
         albumImage = findViewById(R.id.albumImage)
         artistName = findViewById(R.id.artistName)
-        rerollButton = findViewById(R.id.rerollButton)
         albumCard = findViewById(R.id.albumCard)
         swipeArrows = findViewById(R.id.swipeArrows)
         screenLayout = findViewById(R.id.scrollView)
@@ -76,8 +74,6 @@ class SongPickerActivity : AppCompatActivity() {
 
         chooseAlbum()
         updateDisplay()
-
-        rerollButton.setOnClickListener{ findNewAlbum() }
 
         screenLayout.setOnTouchListener(object : OnSwipeTouchListener(this@SongPickerActivity) {
             override fun onSwipeLeft() {
