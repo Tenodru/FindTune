@@ -5,7 +5,9 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.os.Vibrator
 import android.view.GestureDetector
+import android.view.HapticFeedbackConstants
 import android.view.MotionEvent
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +41,7 @@ class SongPickerActivity : AppCompatActivity() {
     lateinit var artistName : TextView
     lateinit var rerollButton : Button
     lateinit var albumCard : MaterialCardView
+    lateinit var swipeArrows : ImageView
 
     lateinit var screenLayout : ScrollView
     lateinit var albumLayout: ConstraintLayout
@@ -53,6 +56,7 @@ class SongPickerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.song_picker)
+        var vib = this.getSystemService(VIBRATOR_SERVICE) as Vibrator
 
         header = findViewById(R.id.header)
         albumName = findViewById(R.id.albumName)
@@ -60,8 +64,11 @@ class SongPickerActivity : AppCompatActivity() {
         artistName = findViewById(R.id.artistName)
         rerollButton = findViewById(R.id.rerollButton)
         albumCard = findViewById(R.id.albumCard)
+        swipeArrows = findViewById(R.id.swipeArrows)
         screenLayout = findViewById(R.id.scrollView)
         albumLayout = findViewById(R.id.albumLayout)
+
+        Toast.makeText(applicationContext, "Swipe left for more songs!", Toast.LENGTH_LONG).show()
 
         header.text = "New Releases"
         newReleasesList = intent.getSerializableExtra("New Releases") as MutableList<SpotifyAlbumInfo>
@@ -75,6 +82,7 @@ class SongPickerActivity : AppCompatActivity() {
         screenLayout.setOnTouchListener(object : OnSwipeTouchListener(this@SongPickerActivity) {
             override fun onSwipeLeft() {
                 super.onSwipeLeft()
+                vib.vibrate(10)
                 findNewAlbum()
             }
         })

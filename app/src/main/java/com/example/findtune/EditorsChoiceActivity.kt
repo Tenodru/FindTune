@@ -1,15 +1,15 @@
 package com.example.findtune
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.os.Vibrator
+import android.view.HapticFeedbackConstants
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.GestureDetectorCompat
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.RecyclerView
 import com.example.findtune.data.EditorsChoiceList
 import com.example.findtune.models.*
 import com.google.android.material.card.MaterialCardView
@@ -17,7 +17,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.io.Serializable
+
 
 class EditorsChoiceActivity : AppCompatActivity() {
 
@@ -32,6 +32,7 @@ class EditorsChoiceActivity : AppCompatActivity() {
     lateinit var artistName : TextView
     lateinit var rerollButton : Button
     lateinit var albumCard : MaterialCardView
+    lateinit var swipeArrows : ImageView
 
     lateinit var screenLayout : ScrollView
     lateinit var albumLayout: ConstraintLayout
@@ -44,6 +45,7 @@ class EditorsChoiceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.song_picker)
+        var vib = this.getSystemService(VIBRATOR_SERVICE) as Vibrator
 
         header = findViewById(R.id.header)
         albumName = findViewById(R.id.albumName)
@@ -51,8 +53,11 @@ class EditorsChoiceActivity : AppCompatActivity() {
         artistName = findViewById(R.id.artistName)
         rerollButton = findViewById(R.id.rerollButton)
         albumCard = findViewById(R.id.albumCard)
+        swipeArrows = findViewById(R.id.swipeArrows)
         screenLayout = findViewById(R.id.scrollView)
         albumLayout = findViewById(R.id.albumLayout)
+
+        Toast.makeText(applicationContext, "Swipe left for more songs!", Toast.LENGTH_LONG).show()
 
         header.text = "Editors' Choice"
         chosenSong = editorsChoiceList.random()
@@ -65,6 +70,7 @@ class EditorsChoiceActivity : AppCompatActivity() {
         screenLayout.setOnTouchListener(object : OnSwipeTouchListener(this@EditorsChoiceActivity) {
             override fun onSwipeLeft() {
                 super.onSwipeLeft()
+                vib.vibrate(10)
                 findNewAlbum()
             }
         })
