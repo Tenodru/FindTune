@@ -29,7 +29,7 @@
         <Button
             android:id="@+id/enterButton"
             android:layout_width="170dp"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:contentDescription="Explore page."
             android:fontFamily="@font/aldrich"
             android:text="Explore!"
@@ -41,7 +41,7 @@
         <Button
             android:id="@+id/newReleasesButton"
             android:layout_width="150dp"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:contentDescription="New Releases. Opens up a Spotify login dialog."
             android:drawableLeft="@drawable/spotify_icon_small"
@@ -59,7 +59,7 @@
         <Button
             android:id="@+id/editorsChoiceButton"
             android:layout_width="150dp"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:contentDescription="Editor's Choice."
             android:fontFamily="@font/aldrich"
@@ -76,7 +76,7 @@
         <Button
             android:id="@+id/discoverButton"
             android:layout_width="170dp"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:layout_marginTop="10dp"
             android:contentDescription="Discover. Shows and hides the New Releases and Editors' Choice buttons."
             android:fontFamily="@font/aldrich"
